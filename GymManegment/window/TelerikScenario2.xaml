@@ -1,0 +1,101 @@
+﻿<telerik:RadWindow WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" x:Class="GymManegment.window.TelerikScenario2"
+        Header="ویرایش و اضافه کردن حرکت" Height="249.337" Width="508.913">
+    <Grid>
+        <telerik:RadButton Content="ذخیره" FontFamily="B YEKAN" FontSize="16" HorizontalAlignment="Left" Height="36" Margin="393,167,0,0" VerticalAlignment="Top" Width="92" Click="RadButton_Click"/>
+        <DataGrid x:Name="DataGrid_User" HorizontalAlignment="Left" Height="194" VerticalAlignment="Top" Width="279" AutoGenerateColumns ="false" FlowDirection="RightToLeft" VerticalGridLinesBrush="{x:Null}" Loaded="DataGrid_User_Loaded" BorderBrush="Black" Foreground="Black" HorizontalGridLinesBrush="{x:Null}" IsReadOnly="True" Margin="7,7,0,0" SelectionChanged="DataGrid_User_SelectionChanged" >
+
+            <DataGrid.Columns>
+
+
+
+
+
+
+                <DataGridTextColumn Header = "کد حرکت" Binding="{Binding ProgramPickerID}" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="FontFamily" Value="B YEKAN"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header = "توضیحات" Binding="{Binding ProgramName}" Width="160" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Visibility="Hidden" Header="Image">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding UserImage}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="اضافه کردن صبحانه"   >
+                        <MenuItem.Icon>
+                            <Image Source="/GymManegment;component/img/Personal-information.png" Width="15" Height="15"  />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="اضافه کردن نهار"  >
+                        <MenuItem.Icon>
+                            <Image Source="/GymManegment;component/pic/123395.png" Width="15" Height="15" />
+                        </MenuItem.Icon>
+
+                    </MenuItem>
+                    <MenuItem Header="اضافه کردن عصرانه"  >
+                        <MenuItem.Icon>
+                            <Image Source="/GymManegment;component/pic/Vorud.png" Width="15" Height="15" />
+                        </MenuItem.Icon>
+
+                    </MenuItem>
+                    <MenuItem Header="اضافه کردن شام"   >
+                        <MenuItem.Icon>
+                            <Image Source="/GymManegment;component/img/Money-Bag-32.png" Width="15" Height="15" />
+                        </MenuItem.Icon>
+
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+
+
+
+
+
+
+
+        </DataGrid>
+        <TextBox FlowDirection="RightToLeft" Name="Harekat_lbl" HorizontalAlignment="Left" Height="24" Margin="295,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188"/>
+        <Label FontFamily="B YEKAN" FlowDirection="RightToLeft" Content="نام حرکت : " HorizontalAlignment="Left" Margin="424,61,0,0" VerticalAlignment="Top"/>
+        <ComboBox IsEditable="False" HorizontalAlignment="Left" Margin="330,113,0,0" VerticalAlignment="Top" Width="122"/>
+        <Label FontFamily="B YEKAN" FlowDirection="RightToLeft" Content="کد دریافت شده : " HorizontalAlignment="Left" Margin="387,28,0,0" VerticalAlignment="Top" Width="102"/>
+        <Label Name="ID_lbl" FontFamily="B YEKAN" FlowDirection="RightToLeft" Content="0" HorizontalAlignment="Left" Margin="304,28,0,0" VerticalAlignment="Top" Width="102" Foreground="#FF878787"/>
+        <telerik:RadButton Content="جدید" FontFamily="B YEKAN" FontSize="16" HorizontalAlignment="Left" Height="36" Margin="295,167,0,0" VerticalAlignment="Top" Width="92" Click="RadButton_Click_1"/>
+    </Grid>
+</telerik:RadWindow>

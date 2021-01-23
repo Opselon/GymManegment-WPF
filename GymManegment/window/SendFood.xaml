@@ -1,0 +1,44 @@
+﻿<Window x:Class="GymManegment.window.SendFood"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManegment.window"
+        mc:Ignorable="d"
+        Title="SendFood" Height="604.536" Width="961.939">
+    <Grid Background="White" MouseMove="Grid_MouseMove">
+        <Rectangle Fill="#FF7E7E7E" HorizontalAlignment="Left" Height="114" Margin="0,696,0,0" Stroke="Black" VerticalAlignment="Top" Width="1650"/>
+        <Image Name="MyImage" Stretch="Fill"  HorizontalAlignment="Left" Height="247" Margin="10,89,0,0" VerticalAlignment="Top" Width="254"/>
+        <Label FlowDirection="RightToLeft" FontFamily="B YEKAN" FontSize="20" Content="نام میوه : " HorizontalAlignment="Left" Margin="849,39,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="FruitName" HorizontalAlignment="Left" Height="22" Margin="596,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" TextAlignment="Center"/>
+        <Label FlowDirection="RightToLeft" FontFamily="B YEKAN" FontSize="20" Content="مقدار کالری :" HorizontalAlignment="Left" Margin="836,79,0,0" VerticalAlignment="Top"/>
+        <Label FlowDirection="RightToLeft" FontFamily="B YEKAN" FontSize="20" Content="توضیحات :" HorizontalAlignment="Left" Margin="676,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.53,1.675"/>
+        <TextBox Name="FrutCalorie"  HorizontalAlignment="Left" Height="22" Margin="596,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" TextAlignment="Center"/>
+        <TextBox FlowDirection="RightToLeft" MaxLength="255" Name="FruitDesc" HorizontalAlignment="Left" Height="156" Margin="448,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="492" FontWeight="Bold"/>
+        <Button Content="ثبت" FontSize="35" HorizontalAlignment="Left" Margin="345,463,0,0" VerticalAlignment="Top" Width="299" Height="60" Click="Button_Click"/>
+        <Button FlowDirection="RightToLeft" Content="عکس..." HorizontalAlignment="Left" Margin="59,353,0,0" VerticalAlignment="Top" Width="136" Height="34" Click="Button_Click_1"/>
+        <ComboBox Name="FoodChoice" HorizontalAlignment="Left" Margin="601,175,0,0" VerticalAlignment="Top" Width="343" SelectedIndex="0" FlowDirection="RightToLeft" Height="29">
+            <ComboBoxItem Content="میوه"  />
+            <ComboBoxItem Content="غذا"  />
+            <ComboBoxItem Content="سبزیجات"  />
+        </ComboBox>
+        <ComboBox   SelectedItem="string" x:Name="FoodChoice_Copy" HorizontalAlignment="Left" Margin="769,128,0,0" VerticalAlignment="Top" Width="56"  FlowDirection="RightToLeft" Height="29" RenderTransformOrigin="0.496,0.471" SelectionChanged="FoodChoice_Copy_SelectionChanged_1">
+            <ComboBoxItem Content="A"  />
+            <ComboBoxItem Content="D"  />
+            <ComboBoxItem Content="K" />
+            <ComboBoxItem Content="E" />
+            <ComboBoxItem Content="C"  />
+            <ComboBoxItem Content="B"  />
+            <ComboBoxItem Content="B1"  />
+            <ComboBoxItem Content="B2"  />
+            <ComboBoxItem Content="B3"  />
+            <ComboBoxItem Content="B7"  />
+            <ComboBoxItem Content="B5"  />
+            <ComboBoxItem Content="B9"  />
+            <ComboBoxItem Content="B12"  />
+        </ComboBox>
+        <Label FlowDirection="RightToLeft" FontFamily="B YEKAN" FontSize="20" Content="نوع ویتامین : " HorizontalAlignment="Left" Margin="836,121,0,0" VerticalAlignment="Top"/>
+        <TextBox IsEnabled="False" x:Name="Sec"  HorizontalAlignment="Left" Height="22" Margin="596,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" TextAlignment="Center"/>
+        <Image  Cursor="Hand" HorizontalAlignment="Left" Height="24" Margin="568,132,0,0" VerticalAlignment="Top" Width="23" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+    </Grid>
+</Window>

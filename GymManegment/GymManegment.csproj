@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6AF25F1-EC0B-440C-B392-77A2A0ED110B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GymManegment</RootNamespace>
+    <AssemblyName>GymManegment</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtensionDate, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ExtensionDate.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Resources">
+      <HintPath>C:\Users\Shadow\Desktop\New folder (5)\Test\Test\bin\Debug\FarsiLibrary.Resources.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.Utils">
+      <HintPath>C:\Users\Shadow\Desktop\New folder (5)\Test\Test\bin\Debug\FarsiLibrary.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="FarsiLibrary.WPF">
+      <HintPath>C:\Users\Shadow\Desktop\New folder (5)\Test\Test\bin\Debug\FarsiLibrary.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="LoadingIndicators.WPF, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LoadingIndicators.WPF.0.0.1\lib\LoadingIndicators.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.2.3.0\lib\net45\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.MaterialLight, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.MaterialLight.2.3.0\lib\net45\MahApps.Metro.IconPacks.MaterialLight.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.SimpleChildWindow, Version=1.5.0.16, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.SimpleChildWindow.1.5.0\lib\net45\MahApps.Metro.SimpleChildWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors">
+      <HintPath>C:\Users\Shadow\Desktop\New folder\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>C:\Users\Shadow\Desktop\New folder\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.0.3541.23206, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="PersianDate">
+      <HintPath>..\..\..\آموزش\C#\C#\ClickSite C-Sharp 0-100 Full\ClickSite C-Sharp 0-100 Full\part5\taghvim\PersianDate.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDateControls">
+      <HintPath>..\..\..\آموزش\C#\C#\ClickSite C-Sharp 0-100 Full\ClickSite C-Sharp 0-100 Full\part5\taghvim\PersianDateControls.dll</HintPath>
+    </Reference>
+    <Reference Include="PersianDatePicker">
+      <HintPath>Dll\PersianDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="RibbonControlsLibrary, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Gym - Copy - Copy - Copy (5)\GymManegment\GymManegment\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2017.3.1018.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Gym - Copy - Copy - Copy (5)\GymManegment\GymManegment\bin\Debug\Telerik.Windows.Controls.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.Diagrams.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams.Extensions">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.Diagrams.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2017.3.1018.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Gym - Copy - Copy - Copy (5)\GymManegment\GymManegment\bin\Debug\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2017.3.1018.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Gym - Copy - Copy - Copy (5)\GymManegment\GymManegment\bin\Debug\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Diagrams.Core">
+      <HintPath>J:\Binaries\WPF45\Telerik.Windows.Diagrams.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFTextBoxAutoComplete, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFTextBoxAutoComplete.1.0.5\lib\net40\WPFTextBoxAutoComplete.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFToolkit">
+      <HintPath>C:\Users\Shadow\Desktop\New folder (4)\PerisanWpfToolkit_SourceAndDemo\WPFToolkit\obj\Debug\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Control\Block.xaml.cs">
+      <DependentUpon>Block.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\KeyComboBox.xaml.cs">
+      <DependentUpon>KeyComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\LoadingAnimation.xaml.cs">
+      <DependentUpon>LoadingAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="gymDataSet.Designer.cs" />
+    <Compile Include="gymDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gymDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GymManagment.cs" />
+    <Compile Include="Module\CryptorEngine.cs" />
+    <Compile Include="Module\Decode.cs" />
+    <Compile Include="Module\HardwareInfo.cs" />
+    <Compile Include="Module\PublicVar.cs" />
+    <Compile Include="Module\PNumberTString.cs" />
+    <Compile Include="Module\YourUtilClass.cs" />
+    <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
+    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
+    <Compile Include="ViewModel\Application\Class1.cs" />
+    <Compile Include="window\AddCustomer.xaml.cs">
+      <DependentUpon>AddCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\AddCustomerSecend.xaml.cs">
+      <DependentUpon>AddCustomerSecend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\BedehiImage.xaml.cs">
+      <DependentUpon>BedehiImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\ChangePasswords.xaml.cs">
+      <DependentUpon>ChangePasswords.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\ControlPanel.xaml.cs">
+      <DependentUpon>ControlPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Daramad.xaml.cs">
+      <DependentUpon>Daramad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Entering.xaml.cs">
+      <DependentUpon>Entering.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\ErrorPage.xaml.cs">
+      <DependentUpon>ErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\FoodList.xaml.cs">
+      <DependentUpon>FoodList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="window\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="window\LinkBedehi.xaml.cs">
+      <DependentUpon>LinkBedehi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\MainWin.xaml.cs">
+      <DependentUpon>MainWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\MemberCharge.xaml.cs">
+      <DependentUpon>MemberCharge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Morabi\AddMorabi.xaml.cs">
+      <DependentUpon>AddMorabi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Morabi\DashboardMain.xaml.cs">
+      <DependentUpon>DashboardMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Morabi\EditMorabi.xaml.cs">
+      <DependentUpon>EditMorabi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Morabi\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Morabi\MorabiPasswordChanging.xaml.cs">
+      <DependentUpon>MorabiPasswordChanging.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Morabi\RecoveryMorabi.xaml.cs">
+      <DependentUpon>RecoveryMorabi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\ParametrServer.xaml.cs">
+      <DependentUpon>ParametrServer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\PriceStory.xaml.cs">
+      <DependentUpon>PriceStory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\PrintWindow.xaml.cs">
+      <DependentUpon>PrintWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\profile_user.xaml.cs">
+      <DependentUpon>profile_user.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Regs.xaml.cs">
+      <DependentUpon>Regs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\SendFood.xaml.cs">
+      <DependentUpon>SendFood.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Submit.xaml.cs">
+      <DependentUpon>Submit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\SubmitFactor.xaml.cs">
+      <DependentUpon>SubmitFactor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\SucFul.xaml.cs">
+      <DependentUpon>SucFul.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\TelerikScenario1.xaml.cs">
+      <DependentUpon>TelerikScenario1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\TelerikScenario2.xaml.cs">
+      <DependentUpon>TelerikScenario2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\TelerikScenario3.xaml.cs">
+      <DependentUpon>TelerikScenario3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\UserInfo.xaml.cs">
+      <DependentUpon>UserInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\UserPerfect.xaml.cs">
+      <DependentUpon>UserPerfect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Users.xaml.cs">
+      <DependentUpon>Users.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\WindowShahrie.xaml.cs">
+      <DependentUpon>WindowShahrie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\win_customer.xaml.cs">
+      <DependentUpon>win_customer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\Win_History.xaml.cs">
+      <DependentUpon>Win_History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="window\win_tamrin.xaml.cs">
+      <DependentUpon>win_tamrin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win_Login.xaml.cs">
+      <DependentUpon>Win_Login.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="window\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="gymDataSet1.xsc">
+      <DependentUpon>gymDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gymDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gymDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gymDataSet1.xss">
+      <DependentUpon>gymDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="pic\59802b055f230-mitch-motivated-fitness-guy.psd" />
+    <None Include="pic\David-the-Classy-Boy-56cc6750087ed.psd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="pic\123395.png" />
+    <Resource Include="pic\14.png" />
+    <Resource Include="pic\145.png" />
+    <Resource Include="pic\2.ico" />
+    <Resource Include="pic\AddUser.png" />
+    <Resource Include="pic\athletes-at-the-gym-cartoon-illustration_11460-7595.jpg" />
+    <Resource Include="pic\BagMoneys.png" />
+    <Resource Include="pic\ChargeUser.png" />
+    <Resource Include="pic\DateIcon.png" />
+    <Resource Include="pic\DateOnePage.png" />
+    <Resource Include="pic\download.png" />
+    <Resource Include="pic\EdditUser.png" />
+    <Resource Include="pic\Error.png" />
+    <Resource Include="pic\Error1.png" />
+    <Resource Include="pic\ErrorPageOne.png" />
+    <Resource Include="pic\FactorIcon.png" />
+    <Resource Include="pic\gym-drawing-2.jpg" />
+    <Resource Include="pic\gym-drawing-23.png" />
+    <Resource Include="pic\gym-drawing-9.jpg" />
+    <Resource Include="pic\GymIcon.png" />
+    <Resource Include="pic\GymIcons.png" />
+    <Resource Include="pic\IconActor.png" />
+    <Resource Include="pic\LocationPic.png" />
+    <Resource Include="pic\MoneyBag.png" />
+    <Resource Include="pic\newpic\1.png" />
+    <Resource Include="pic\newpic\add-256.png" />
+    <Resource Include="pic\newpic\add-user-128.png" />
+    <Resource Include="pic\newpic\add-user-group-woman-man.png" />
+    <Resource Include="pic\newpic\AddUser.png" />
+    <Resource Include="pic\newpic\Age.png" />
+    <Resource Include="pic\newpic\Bazu.png" />
+    <Resource Include="pic\newpic\code.png" />
+    <Resource Include="pic\newpic\credit-card.png" />
+    <Resource Include="pic\newpic\delete-user-128.png" />
+    <Resource Include="pic\newpic\DetroitLIons-350x266.png" />
+    <Resource Include="pic\newpic\download.jpg" />
+    <Resource Include="pic\newpic\FamilyIcon.png" />
+    <Resource Include="pic\newpic\GenderIcon.png" />
+    <Resource Include="pic\newpic\Ghad.png" />
+    <Resource Include="pic\newpic\Health_icon.png" />
+    <Resource Include="pic\newpic\History.png" />
+    <Resource Include="pic\newpic\HomeIcon.png" />
+    <Resource Include="pic\newpic\icon.png" />
+    <Resource Include="pic\newpic\images.jpg" />
+    <Resource Include="pic\newpic\Kamar.png" />
+    <Resource Include="pic\newpic\Key.png" />
+    <Resource Include="pic\newpic\Location.png" />
+    <Resource Include="pic\newpic\MeliCode.png" />
+    <Resource Include="pic\newpic\NameIcon.png" />
+    <Resource Include="pic\newpic\PhoneIcon.png" />
+    <Resource Include="pic\newpic\post.png" />
+    <Resource Include="pic\newpic\Sine.png" />
+    <Resource Include="pic\newpic\Snap\1.png" />
+    <Resource Include="pic\newpic\Snap\accept-circle-256.png" />
+    <Resource Include="pic\newpic\Snap\green-tick-check-mark-icon-cartoon-vector-13845157.jpg" />
+    <Resource Include="pic\newpic\Snap\logo_brand_brands_logos_android-256.png" />
+    <Resource Include="pic\newpic\Spi\logo_brand_brands_logos_android-256.png" />
+    <Resource Include="pic\newpic\Spi\logo_brand_brands_logos_apple_ios-256.png" />
+    <Resource Include="pic\newpic\Spi\logo_brand_brands_logos_windows_explorer-256.png" />
+    <Resource Include="pic\newpic\Spi\logo_brand_brands_logos_word-256.png" />
+    <Resource Include="pic\newpic\Spi\social_media_social_media_logo_facebook-256.png" />
+    <Resource Include="pic\newpic\Spi\social_media_social_media_logo_instagram-256.png" />
+    <Resource Include="pic\newpic\Spi\social_media_social_media_logo_skype-256.png" />
+    <Resource Include="pic\newpic\Spi\social_media_social_media_logo_whatsapp-256.png" />
+    <Resource Include="pic\newpic\thisguys.png" />
+    <Resource Include="pic\newpic\Username.png" />
+    <Resource Include="pic\newpic\Vazn.png" />
+    <Resource Include="pic\ProfilesUsers.png" />
+    <Resource Include="pic\RemoveUser.png" />
+    <Resource Include="pic\Sets\cloud-setting-512.png" />
+    <Resource Include="pic\Sets\provacy-man-512.png" />
+    <Resource Include="pic\Sets\shield-512.png" />
+    <Resource Include="pic\user.jpg" />
+    <Resource Include="pic\UserEdit.png" />
+    <Resource Include="pic\UserFamily.png" />
+    <Resource Include="pic\userid.png" />
+    <Resource Include="pic\UserName.png" />
+    <Resource Include="pic\Users.jpg" />
+    <Resource Include="pic\UserTel.png" />
+    <Resource Include="pic\Vorud.png" />
+    <Resource Include="Resources\Entypo.ttf" />
+    <None Include="Website\1_files\analytics.js.download" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Control\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Control\KeyComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MaterialDesignColors.Wpf\Themes\MaterialDesignColor.LightBlue.Primary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialDesignColors.Wpf\Themes\MaterialDesignColor.LightGreen.Named.Primary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="MaterialDesignThemes.Uwp\Themes\MaterialDesignColor.LightGreen.Named.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Texts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BubbleCreme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\ShinyDarkPurple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\AddCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\AddCustomerSecend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\BedehiImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\ChangePasswords.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\ControlPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\Daramad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\Entering.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\ErrorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\FoodList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\LinkBedehi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\MainWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\MemberCharge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Morabi\AddMorabi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Morabi\DashboardMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Morabi\EditMorabi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Morabi\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Morabi\MorabiPasswordChanging.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Morabi\RecoveryMorabi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\ParametrServer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\PriceStory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\PrintWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\profile_user.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\Regs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\SendFood.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\Submit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\SubmitFactor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\SucFul.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\TelerikScenario1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\TelerikScenario2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\TelerikScenario3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\UserInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\UserPerfect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\Users.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\WindowShahrie.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="window\win_customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\Win_History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="window\win_tamrin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1\2\images.jpg" />
+    <Resource Include="img\Lock-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\LockIcon" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\p555.jpg" />
+    <Resource Include="img\Personal-information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\forgot-password-icon-9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\account-profile-user-icon--icon-search-engine-10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\address-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\images %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\link-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataModelLayer\DataModelLayer.csproj">
+      <Project>{c239c8ee-98ee-414d-ac9e-134fbe0926bd}</Project>
+      <Name>DataModelLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\meeting-icon-3245.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\21846265-button-settings-icon-red.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\684904.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="window\Morabi\Images\1037766-200.png" />
+    <Resource Include="window\Morabi\Images\AddMember\Login.png" />
+    <Resource Include="window\Morabi\Images\AddMember\recover.png" />
+    <Resource Include="window\Morabi\Images\AddMember\SaveImage.png" />
+    <Resource Include="window\Morabi\Images\cup_silver-512.png" />
+    <Resource Include="window\Morabi\Images\icons8-home-50 %281%29.png" />
+    <Resource Include="window\Morabi\Images\Icon_Medal_Trophy_Awards_Green-512.png" />
+    <Resource Include="window\Morabi\Images\Icon_Trophy_Awards_Cup_Bronze-512.png" />
+    <Resource Include="window\Morabi\Images\Icon_Trophy_Awards_Cup_Silver-512.png" />
+    <Resource Include="window\Morabi\Images\information.png" />
+    <Resource Include="window\Morabi\Images\mute notification.png" />
+    <Resource Include="window\Morabi\Images\new-user.png" />
+    <Resource Include="window\Morabi\Images\notification.png" />
+    <Resource Include="window\Morabi\Images\sports_equipment-10-512.png" />
+    <Resource Include="window\Morabi\Images\writing.png" />
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+    <Resource Include="Resources\Entypo-license.txt" />
+    <Resource Include="img\refresh-flat.png" />
+    <Resource Include="1\4\Untitled-1.jpg" />
+    <Resource Include="1\4\Untitled-2.jpg" />
+    <Resource Include="1\4\Untitled-3.jpg" />
+    <Resource Include="1\4\Untitled-4.jpg" />
+    <Resource Include="1\4\Untitled-5.jpg" />
+    <Resource Include="1\4\Untitled-6.jpg" />
+    <Resource Include="1\4\Untitled-7.jpg" />
+    <Resource Include="1\4\Untitled-11.jpg" />
+    <Content Include="gym.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gym_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>gym.mdf</DependentUpon>
+    </Content>
+    <Resource Include="Once\if_Settings-5_379393.png" />
+    <Resource Include="img\if_Settings-5_379393.ico" />
+    <Resource Include="pic\1be27f7867c32073fcec5d36a1121083.jpg" />
+    <Resource Include="pic\59880a3af0133-stephan-succesful-businessman.png" />
+    <Resource Include="pic\608188eed3951da92acd342f2b4dab8d.jpg" />
+    <Resource Include="pic\72-pointer-1%28concepts%29.jpg" />
+    <Resource Include="pic\73438304-strong-athletic-looking-boy-sportsman-muscles-award-cartoon-character-person-on-white-background-vec.jpg" />
+    <Resource Include="pic\actor-man-hero-celebrity-young-boy-33d4ff27b4b92d30-256x256.png" />
+    <Resource Include="pic\BLackLF.png" />
+    <Resource Include="pic\content-managment-business-marketing-394722e6518b105b-256x256.png" />
+    <Resource Include="pic\d3-black-man-running-knee-high.jpg" />
+    <Resource Include="pic\David-the-Classy-Boy-56cc6750087ed.png" />
+    <Resource Include="pic\dumbbells-fitness-exercise-workout-gym-392ab67ed9504761-256x256.png" />
+    <Resource Include="pic\fit_man.png" />
+    <Resource Include="pic\gym-drawing-11.jpg" />
+    <Resource Include="pic\icons8-minus-48.png" />
+    <Resource Include="pic\icons8-plus-48.png" />
+    <Resource Include="pic\Jim-the-Business-Icon-56cc63cb4ba2d.png" />
+    <Resource Include="pic\Josh-2.jpg" />
+    <Resource Include="pic\new-lions-company-brand-logo-336e2357dd0ea046-512x512.png" />
+    <Resource Include="pic\painting-2407262_1920.jpg" />
+    <Resource Include="pic\Penny-the-Gym-Instructor-56d6fc520daff.png" />
+    <Resource Include="pic\settings-3efad26c962bb39c-256x256.png" />
+    <Resource Include="pic\Vector_Business_Guy_holding_a_Phone_Big.jpg" />
+    <Resource Include="pic\Windsor.png" />
+    <Resource Include="img\012_restart-512.png" />
+    <Content Include="Website\1.html" />
+    <Content Include="Website\1_files\OneSignalSDKStyles.css" />
+    <Content Include="Website\1_files\webPushAnalytics%281%29.html" />
+    <Content Include="Website\1_files\webPushAnalytics.html" />
+    <Content Include="Website\1_files\webPushIframe.html" />
+    <Resource Include="img\exitt.png" />
+    <Resource Include="img\exitt.jpg" />
+    <Resource Include="img\servidor.png" />
+    <Resource Include="img\Refresh.png" />
+    <Resource Include="img\id-card.png" />
+    <Resource Include="img\archive.png" />
+    <Resource Include="img\medical-history.png" />
+    <Resource Include="img\picture12462013706375.png" />
+    <Resource Include="img\8Human-Gym-Logo-Design.png" />
+    <Resource Include="img\Colorful-PNG-Clipart.png" />
+    <Resource Include="img\TAZ.png" />
+    <Resource Include="img\TAS.jpg" />
+    <Resource Include="img\no.png" />
+    <Resource Include="Once\supportfemale-512.png" />
+    <Resource Include="Once\girl-512.png" />
+    <Resource Include="Once\16-512.png" />
+    <Resource Include="Once\female1-512.png" />
+    <Resource Include="Once\if_maturewoman_628297.png" />
+    <Resource Include="Once\2-512.png" />
+    <Resource Include="Once\malecostume-512.png" />
+    <Resource Include="Once\boy-512.png" />
+    <Resource Include="Once\boy-512 %281%29.png" />
+    <Resource Include="Once\matureman1-512.png" />
+    <Resource Include="Once\male3-512.png" />
+    <Resource Include="Once\1.png" />
+    <Resource Include="Once\2.png" />
+    <Resource Include="Once\Boxer-avatar-occupation-profession-man-human-512.png" />
+    <Resource Include="loading.png" />
+    <Resource Include="kisspng-dumbbell-weight-training-fitness-centre-computer-i-dumbbell-icon-5b27dbee059ec9.368319591529338862023.png" />
+    <Resource Include="kisspng-fitness-centre-cartoon-sport-illustration-gym-woman-fashion-5a9d84aac41875.3679686715202725548032.jpg" />
+    <Resource Include="kisspng-euclidean-vector-color-line-smoke-wavy-lines-5aaad8053ee0b1.8601823215211458612576.png" />
+    <Resource Include="kisspng-rainbow-lines-euclidean-vector-rainbow-wavy-lines-5a9b6a09425233.1369443415201346652717.png" />
+    <Resource Include="_png__wavy_line_by_iheartsnsdforever-d6xw76y.png" />
+    <Resource Include="Photo-icon.png" />
+    <Resource Include="1\redo.png" />
+    <Resource Include="img\money-bag.png" />
+    <Resource Include="img\n1503794.jpg" />
+    <Resource Include="img\n14431294.jpg" />
+    <Resource Include="img\n1443129.jpg" />
+    <Resource Include="img\customer.png" />
+    <Resource Include="img\search-75.png" />
+    <Resource Include="img\Customer_Experiences.png" />
+    <Resource Include="img\mottakere.png" />
+    <Resource Include="img\gym-man-vector-huge-muscular-dude-isolated-white-background-art-51775398.jpg" />
+    <Resource Include="img\Untitled-2.jpg" />
+    <Resource Include="img\Chart_01.png" />
+    <Resource Include="img\nemudar.png" />
+    <Resource Include="img\dastresi.png" />
+    <Resource Include="img\product2.gif" />
+    <Resource Include="img\circle-plus-256.png" />
+    <Resource Include="img\bar_chart_graph-256.png" />
+    <Resource Include="img\nemudar.jpg" />
+    <Resource Include="img\Money-Bag-32.png" />
+    <Resource Include="img\check_list_customer_service_clipboard-256.png" />
+    <Resource Include="img\system-software-update.png" />
+    <Resource Include="img\1304-256.png" />
+    <Resource Include="img\427-64.png" />
+    <Resource Include="img\004_cloud_upload_backup_laptop_computer_export_copy-256.png" />
+    <Resource Include="img\4.png" />
+    <Resource Include="img\1_hospital-256.png" />
+    <Resource Include="img\13.png" />
+    <Resource Include="img\21.png" />
+    <Resource Include="img\44.png" />
+    <Resource Include="img\055.jpg" />
+    <Resource Include="img\28154432_179407539345269_7047783492964319232_n.jpg" />
+    <Resource Include="1\free-vector-dynamic-lines-of-the-vector_006872_abs_line4.jpg" />
+    <Resource Include="1\1111.jpg" />
+    <Resource Include="1\111111Untitled-1.png" />
+    <Resource Include="1\208959-OZTNBA-528.jpg" />
+    <Resource Include="1\Untitled-1.png" />
+    <Resource Include="1\Untitled-12.png" />
+    <Resource Include="1\Untitled-12131231231231231231221312312ییظط312.png" />
+    <Resource Include="1\Untitled-121312312312312312312312333333333333.jpg" />
+    <Resource Include="1\Untitled-12131231231231231231231233333333333333333333333333.png" />
+    <Resource Include="1\Untitled-1213123123123123123123124444.png" />
+    <Resource Include="1\Untitled-1213123123123123123123125555555555.png" />
+    <Resource Include="1\Untitled-12131231234444444444444412312312312312.png" />
+    <Resource Include="1\Untitled-122222222222222222.png" />
+    <Resource Include="1\Untitled-133333.png" />
+    <Resource Include="1\Untitled-13333333333333333333.png" />
+    <Resource Include="1\Untitled-144444444.png" />
+    <Resource Include="1\Untitled-2222222222222222222222222222222222221.png" />
+    <Resource Include="1\Untitled-44444444444444444444444444444444444444444444441.png" />
+    <Resource Include="1\2122.png" />
+    <Resource Include="1\exit.png" />
+    <Resource Include="1\exit %281%29.png" />
+    <Resource Include="1\icons8-close-window-50.png" />
+    <Resource Include="1\exit %282%29.png" />
+    <Resource Include="1\276363.png" />
+    <Resource Include="1\best-3d-wallpaper-android-09333.jpg" />
+    <Resource Include="1\money-bag.png" />
+    <Resource Include="1\calendar.png" />
+    <Resource Include="1\calendar %281%29.png" />
+    <Resource Include="1\calendar %282%29.png" />
+    <Resource Include="1\handshake.png" />
+    <Resource Include="abacus.png" />
+    <Resource Include="1\confetti-background-with-space_1017-10069.jpg" />
+    <Resource Include="folder-invoices-icon.png" />
+    <Resource Include="bank_check_account_finance_money_financial_item_flat_icon_symbol-512.png" />
+    <Resource Include="coins_money_cash_gold_finance_flat_icon_symbol-512.png" />
+    <Resource Include="folder-customer-icon.png" />
+    <Resource Include="bank.png" />
+    <Resource Include="folder-vectors-icon.png" />
+    <Resource Include="1\Package\1.png" />
+    <Resource Include="1\Package\2.png" />
+    <Resource Include="1\Package\3.png" />
+    <Resource Include="1\Package\4.png" />
+    <Resource Include="if_Imagine_1562700.png" />
+    <Resource Include="if_magnifyingglass_1055031.png" />
+    <Resource Include="flat_jay.png" />
+    <Resource Include="1\2\icon-forms-150x150.png" />
+    <Resource Include="1\2\icon-guides-300x300.png" />
+    <Resource Include="1\2\icon-statutes-300x300.png" />
+    <Resource Include="1\2\icon-support.png" />
+    <Resource Include="1\2\photo-1103594_960_720.png" />
+    <Resource Include="1\2\camera-512.png" />
+    <Resource Include="1\2\gallery-512.png" />
+    <Resource Include="1\2\46-512.png" />
+    <Resource Include="cool-ppt-backgrounds-cool-powerpoint-background-designs-wallpaperinfinity.jpg" />
+    <Resource Include="Backgrounds\1.jpg" />
+    <Resource Include="1\3.png" />
+    <Resource Include="1\4.png" />
+    <Resource Include="1\3\refresh.png" />
+    <Resource Include="28429111_409973466130067_1260860385011957760_n.jpg" />
+    <Resource Include="img\134.png" />
+    <Resource Include="1\4\pexels-photo-6855343.jpg" />
+    <Resource Include="1\4\3.png" />
+    <Resource Include="1\4\2.png" />
+    <Resource Include="1\4\4.png" />
+    <Resource Include="1\4\5.png" />
+    <Resource Include="1\4\11.png" />
+    <Resource Include="1\4\998389.png" />
+    <Resource Include="1\4\998382.png" />
+    <Resource Include="1\4\searching.png" />
+    <Resource Include="1\4\998412.png" />
+    <Resource Include="1\4\998387.png" />
+    <Resource Include="1\4\998418.png" />
+    <Resource Include="1\4\9983811.png" />
+    <Resource Include="1\4\9983812.png" />
+    <Resource Include="1\4\998423.png" />
+    <Resource Include="1\2\intro-1.jpg" />
+    <Resource Include="1\2\index-slide-1.jpg" />
+    <Resource Include="1\2\blue-minimized-icon-32193.png" />
+    <Resource Include="IconSets\user.png" />
+    <Resource Include="IconSets\Calendar-icon.png" />
+    <Resource Include="IconSets\gender %281%29.png" />
+    <Resource Include="IconSets\gender.png" />
+    <Resource Include="IconSets\images.png" />
+    <Resource Include="IconSets\Status-user-online-icon.png" />
+    <Resource Include="IconSets\Utilities-google-calendar-icon.png" />
+    <Resource Include="img\555.png" />
+    <Resource Include="img\27455245-gym-wallpapers.jpg" />
+    <Resource Include="img\020_244_scroll_paper_text_old_log_history_manuscript-512.png" />
+    <Resource Include="1\market-factors-icons.png" />
+    <Resource Include="1\983961-border.jpg" />
+    <Resource Include="1\155445613-1024x1024.jpg" />
+    <Resource Include="1\images.jpg" />
+    <Resource Include="1\images %281%29.jpg" />
+    <Content Include="img\603120.svg" />
+    <Resource Include="img\rubber-stamp-256.png" />
+    <Resource Include="img\user-add-man-256.png" />
+    <Resource Include="img\Settings-5-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

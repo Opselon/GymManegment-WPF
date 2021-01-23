@@ -1,0 +1,363 @@
+﻿<Window  x:Class="GymManegment.window.ControlPanel" AllowsTransparency="True"
+         xmlns:PersianDateControls="clr-namespace:Arash.PersianDateControls;assembly=PersianDateControls" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManegment.window" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Background="Transparent"
+        Title="ControlPanel" Height="850.5" Width="1329" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded">
+    <Grid  Margin="0,0,-252,-96" DragEnter="Grid_DragEnter" Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="933*"/>
+            <ColumnDefinition Width="622*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle RadiusX="40" RadiusY="40" HorizontalAlignment="Left" Height="586" Stroke="Black" VerticalAlignment="Top" Width="1186" Grid.Column="1" Margin="33,113,0,0" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/GymManegment;component/img/TAS.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle RadiusY="40" RadiusX="40" Opacity="0.8" HorizontalAlignment="Left" Height="73" Margin="33,626,0,0"  Stroke="Black" VerticalAlignment="Top" Width="1186" Fill="Black" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label FlowDirection="RightToLeft" Content="کد ورزشکار :" FontFamily="B YEKAN" FontSize="24" HorizontalAlignment="Left" Margin="751,636,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <Label FlowDirection="RightToLeft" Content="شماره کمد :" FontFamily="B YEKAN" FontSize="24" HorizontalAlignment="Left" Margin="300,636,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="White" Grid.Column="1"/>
+        <DataGrid  Opacity="1" x:Name="DataGrid_User" HorizontalAlignment="Left" CanUserAddRows="False"  Height="414" Margin="44,127,0,0" VerticalAlignment="Top" Width="694" FlowDirection="RightToLeft" VerticalGridLinesBrush="{x:Null}"  BorderBrush="{x:Null}" Foreground="Black" HorizontalGridLinesBrush="White" MouseMove="DataGrid_User_MouseMove" MouseLeave="DataGrid_User_MouseLeave" Grid.Column="1" MouseDown="DataGrid_User_MouseDown" SelectedCellsChanged="DataGrid_User_SelectedCellsChanged" AutoGenerateColumns="False" LoadingRow="DataGrid_User_LoadingRow" Background="{x:Null}" >
+
+
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn IsReadOnly="True"  Header = "کد کاربر" Binding="{Binding UserID}" Width="100" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="Firebrick"/>
+                            <Setter Property="FontFamily" Value="B YEKAN"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn IsReadOnly="True" Header = "نام و نام خانوادگی" Binding="{Binding FullName}" Width="150" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="RED"/>
+                            <Setter Property="FontFamily" Value="B YEKAN"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+
+                <DataGridTextColumn IsReadOnly="True" Header = "جنسیت کاربر"  Binding="{Binding UserGenderFarsi}" Width="100" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="Chocolate"/>
+                            <Setter Property="FontFamily" Value="B YEKAN"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+
+
+                </DataGridTextColumn>
+                <DataGridTextColumn  IsReadOnly="True" Header = "وضعیت کاربر" Binding="{Binding UserActiveFarsi}" Width="100" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="FontFamily" Value="B YEKAN"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn
+                >
+
+                <DataGridTextColumn IsReadOnly="True"  Header = "شماره کمد" Binding="{Binding InvCount}" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="RED"/>
+                            <Setter Property="FontFamily" Value="B YEKAN"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn IsReadOnly="True" Header = "ساعت ورود" Binding="{Binding InvEnterDate}" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="RED"/>
+                            <Setter Property="FontFamily" Value ="B Koodak"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn MaxWidth="0" IsReadOnly="True" Header = "کد ورود" Binding="{Binding InvID}" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Foreground" Value="RED"/>
+                            <Setter Property="FontFamily" Value ="B Koodak"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+
+
+                <DataGridTemplateColumn  Header="ثبت خروج" >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+                            <Button x:Name="delete"  Click="OutPut" FontFamily="B YEKAN" FontWeight="Bold">
+
+                                <Image Source="/img/no.png" Height="20" Width="16" />
+
+                            </Button>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+
+
+                <DataGridTemplateColumn Visibility="Hidden" Header="عکس"  >
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily"  Value ="B Yekan"/>
+                            <Setter Property="FontSize"  Value ="14"/>
+                            <Setter Property="FontWeight"  Value ="Bold"/>
+                            <Setter Property="HorizontalAlignment"  Value ="Center"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding UserImage}" Height="100" Width="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </DataGrid>
+        <Rectangle RadiusY="40" RadiusX="40" Opacity="0.7" HorizontalAlignment="Left" Height="508" Margin="772,113,0,0"  Stroke="Black" VerticalAlignment="Top" Width="447" Fill="Black" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label FlowDirection="RightToLeft" Content="نام و نام خانوادگی  :" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="107,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FF88C057" Grid.Column="2"/>
+        <Image Name="MyImage" Source="/pic/download.png" HorizontalAlignment="Left" Height="213" Margin="874,140,0,0" VerticalAlignment="Top" Width="256" RenderTransformOrigin="0.661,0.507" Grid.Column="1" Grid.ColumnSpan="2" MouseLeftButtonDown="MyImage_MouseLeftButtonDown" Stretch="Fill">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/GymManegment;component/pic/download.png"/>
+            </Image.OpacityMask>
+        </Image>
+        <Label FlowDirection="RightToLeft" Content="وضعیت :" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="174,456,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FFE0D82A" Grid.Column="2"/>
+        <Label FlowDirection="RightToLeft" Content="تاریخ پایان شارژ  :" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="110,491,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FF1A957A" Grid.Column="2"/>
+        <Label Name="Name" FlowDirection="RightToLeft" Content="محمد" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="845,390,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="White" Width="195" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Name="Active" FlowDirection="RightToLeft" Content="فعال" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="871,456,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FF33A400" Width="241" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Name="Days" FlowDirection="RightToLeft" Content="22 روز" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="775,491,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="White" Grid.Column="1" Width="275" Grid.ColumnSpan="2"/>
+        <Label FlowDirection="RightToLeft" Content="جنسیت :" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="169,424,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FF4997F4" Grid.Column="2"/>
+        <Label Name="Gender" FlowDirection="RightToLeft" Content="مرد" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="21,424,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FFE34965" Width="155" Grid.Column="2"/>
+        <Button IsDefault="True" x:Name="newuser"  Content="ثبت ورود ورزشکار" HorizontalAlignment="Left" Margin="331,0,0,170" VerticalAlignment="Bottom" Width="558" Height="72" FontWeight="Bold" Foreground="Black" FontSize="33" BorderBrush="Black" RenderTransformOrigin="0.739,0.518" Grid.Column="1" Click="newuser_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFCFBDDA" Offset="0.41800001263618469"/>
+                    <GradientStop Color="#FF9B86A8" Offset="0.418"/>
+                    <GradientStop Color="#FF5AB862" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF6C3434" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.OpacityMask>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="77" Margin="845,699,0,0" VerticalAlignment="Top" Width="87" Source="/GymManegment;component/pic/FactorIcon.png" RenderTransformOrigin="0.7,0.919" Grid.Column="1" />
+        <Border  BorderThickness="1" HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="1182" Margin="12,40,0,0" RenderTransformOrigin="0.5,0.5"  Grid.Column="1" Grid.ColumnSpan="2"  >
+
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-21.318"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="23.61"/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Label Content="ثبت ورود و خروج" HorizontalAlignment="Left" Margin="892,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.592,-3.519" FontSize="36" FontFamily="B Yekan" Height="109" Foreground="White" Background="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label.BorderBrush>
+                <ImageBrush/>
+            </Label.BorderBrush>
+        </Label>
+        <Image  Cursor="Hand" Source="/GymManegment;component/img/exit.png" HorizontalAlignment="Left" Height="58" Margin="57,46,0,0" VerticalAlignment="Top" Width="77" RenderTransformOrigin="2.469,3.07" MouseLeftButtonDown="Image_MouseLeftButtonDown_1" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="73" Margin="202,38,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="2.19,-1.73" Source="/GymManegment;component/pic/newpic/add-user-128.png" Grid.Column="2" />
+        <Image   Cursor="Hand" Source="/1\2\blue-minimized-icon-32193.png" HorizontalAlignment="Left" Height="63" Margin="121,44,0,0" VerticalAlignment="Top" Width="82" RenderTransformOrigin="2.469,3.07" MouseLeftButtonDown="Image_MouseLeftButtonDown"  Grid.Column="1"/>
+        <PersianDateControls:PersianDatePicker x:Name="EnterDate" Visibility="Hidden" HorizontalAlignment="Left" Height="29" Margin="678,668,0,0" VerticalAlignment="Top" Width="108" BorderBrush="{x:Null}"  FontWeight="Bold" Foreground="Red" RenderTransformOrigin="-0.288,0.534" Grid.Column="1"/>
+        <Label Name="FamilyFinder" Visibility="Hidden" Content="Label" Grid.Column="2" HorizontalAlignment="Left" Margin="29,175,0,0" VerticalAlignment="Top"/>
+        <Label FlowDirection="RightToLeft" Content="تاریخ امروز  :" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="141,642,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FF3B83F3" Grid.Column="2"/>
+        <Label x:Name="Days_C" FlowDirection="RightToLeft" Content="22 روز" FontFamily="B YEKAN" FontSize="18" HorizontalAlignment="Left" Margin="887,642,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="White" Grid.Column="1" Width="192" Grid.ColumnSpan="2"/>
+        <Rectangle RadiusY="40" RadiusX="40" Opacity="0.6" HorizontalAlignment="Left" Height="73" Margin="36,546,0,0"  Stroke="Black" VerticalAlignment="Top" Width="734" Fill="Black" Grid.Column="1"/>
+        <Image Source ="/IconSets/user.png" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="241,395,0,0" VerticalAlignment="Top" Width="45"/>
+        <Image Source ="/GymManegment;component/IconSets/user.png" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="241,395,0,0" VerticalAlignment="Top" Width="45"/>
+        <Image Source="/GymManegment;component/IconSets/gender (1).png" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="235,427,0,0" VerticalAlignment="Top" Width="51"/>
+        <Image Source="/GymManegment;component/IconSets/gender (1).png" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="235,427,0,0" VerticalAlignment="Top" Width="51"/>
+        <Image Source="/GymManegment;component/IconSets/gender (1).png" Grid.Column="2" HorizontalAlignment="Left" Height="35" Margin="235,427,0,0" VerticalAlignment="Top" Width="51"/>
+        <Image Source="/GymManegment;component/IconSets/Status-user-online-icon.png" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="241,462,0,0" VerticalAlignment="Top" Width="40"/>
+        <Image Source="/GymManegment;component/IconSets/Utilities-google-calendar-icon.png" Grid.Column="2" HorizontalAlignment="Left" Height="32" Margin="236,647,0,0" VerticalAlignment="Top" Width="48"/>
+        <Image Source="/GymManegment;component/IconSets/Calendar-icon.png" Grid.Column="2" HorizontalAlignment="Left" Height="27" Margin="243,498,0,0" VerticalAlignment="Top" Width="45"/>
+        <TextBox MaxLength="9" IsEnabled="true" x:Name="txt_id"  HorizontalAlignment="Left" Height="32" Margin="579,644,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontFamily="B YEKAN" FontSize="18" TextChanged="txt_name_TextChanged" Foreground="Black" BorderBrush="Black" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" PreviewTextInput="txt_id_PreviewTextInput_1" TextAlignment="Center" >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD1D4D6" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="#FFFFF093" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+        </TextBox>
+        <TextBox MaxLength="9" IsEnabled="true" x:Name="Txt_Komod"  HorizontalAlignment="Left" Height="32" Margin="125,644,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontFamily="B YEKAN" FontSize="18"  Foreground="Black" BorderBrush="Black"  FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" PreviewTextInput="Txt_Komod_PreviewTextInput" TextAlignment="Center" >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD1D4D6" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="#FFFFF093" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+        </TextBox>
+        <Label FlowDirection="RightToLeft" Content="تعداد افراد امروز  :" FontFamily="B YEKAN" FontSize="22" HorizontalAlignment="Left" Margin="137,542,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FFFFF51C" Grid.Column="1"/>
+        <Label FlowDirection="RightToLeft" Name="Calcs"  Content="0" FontFamily="B YEKAN" FontSize="22" HorizontalAlignment="Left" Margin="46,542,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,0.07" Background="{x:Null}" Foreground="#FF1CEAFF" Width="91" Grid.Column="1"/>
+        <CheckBox FlowDirection="RightToLeft" Foreground="White" FontFamily="B YEKAN" Content="نمایش عکس ورزشکاران" Grid.Column="1" HorizontalAlignment="Left" Margin="123,585,0,0" VerticalAlignment="Top" Click="CheckBox_Click" Unchecked="CheckBox_Unchecked" Checked="CheckBox_Checked" FontSize="18"/>
+        <TextBox MaxLength="9" IsEnabled="true" x:Name="txt_id_Copy"  HorizontalAlignment="Left" Height="32" Margin="436,549,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontFamily="B YEKAN" FontSize="18" Foreground="Black" BorderBrush="Black" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" TextChanged="txt_id_Copy_TextChanged" >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD1D4D6" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="#FF93F5FF" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+        </TextBox>
+        <TextBox MaxLength="9" IsEnabled="true" x:Name="txt_id_Copy1"  HorizontalAlignment="Left" Height="32" Margin="436,585,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" FontFamily="B YEKAN" FontSize="18" TextChanged="txt_id_Copy1_TextChanged" Foreground="Black" BorderBrush="Black" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" >
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD1D4D6" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="#FF93F5FF" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+        </TextBox>
+        <Label FlowDirection="RightToLeft" Content="نام و نام خانوادگی : " Grid.Column="1" HorizontalAlignment="Left" Margin="609,548,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="B Yekan" FontSize="16"/>
+        <Label FlowDirection="RightToLeft" Content="کد ورزشکار : " Grid.Column="1" HorizontalAlignment="Left" Margin="609,587,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="B Yekan" FontSize="16"/>
+    </Grid>
+</Window>

@@ -1,0 +1,44 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManegment.window.Morabi"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="GymManegment.window.Morabi.LoginMorabi"
+        ResizeMode="NoResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="DashboardMain" Height="485" Width="865">
+    <Grid>
+
+        <Grid HorizontalAlignment="Left" Height="485" Margin="685,0,0,0" VerticalAlignment="Top" Width="180" Background="#FFD32A2A">
+            <Button Cursor="Hand"  Content="خانه" HorizontalAlignment="Left" Margin="2,205,0,0" VerticalAlignment="Top" Width="178" Height="55" BorderBrush="{x:Null}" Foreground="White" Background="#FFD32A2A" FontFamily="B Yekan" FontSize="24" RenderTransformOrigin="0.625,0.455" Click="Button_Click"/>
+            <Button Cursor="Hand" Content="افزودن" HorizontalAlignment="Left" Margin="-1,248,0,0" VerticalAlignment="Top" Width="180" Height="55" BorderBrush="{x:Null}" Foreground="White" Background="#FFD32A2A" FontFamily="B Yekan" FontSize="24" RenderTransformOrigin="0.625,0.455"/>
+            <Button Cursor="Hand" Content="ورود" HorizontalAlignment="Left" Margin="0,298,0,0" VerticalAlignment="Top" Width="180" Height="55" BorderBrush="{x:Null}" Foreground="White" Background="#FFD32A2A" FontFamily="B Yekan" FontSize="24" RenderTransformOrigin="0.625,0.455"/>
+            <Button Cursor="Hand" Content="بازیابی" HorizontalAlignment="Left" Margin="-1,352,0,82" Width="180" BorderBrush="{x:Null}" Foreground="White" Background="#FFD32A2A" FontFamily="B Yekan" FontSize="24" RenderTransformOrigin="0.625,0.455"/>
+            <TextBlock FontFamily="B YEKAN" FlowDirection="RightToLeft" Foreground="White" HorizontalAlignment="Left" Margin="22,164,0,0" TextWrapping="Wrap" Text="علی رضا محمد زاده" VerticalAlignment="Top" Width="126"/>
+            <TextBlock FlowDirection="RightToLeft" Foreground="#FFFAFFC9" HorizontalAlignment="Left" Margin="23,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontFamily="Mj_Promoter Lt" Height="19"><Run Text="کاربر جدید"/></TextBlock>
+            <Button Cursor="Hand" Content="ذخیره" HorizontalAlignment="Left" Margin="-1,248,0,0" VerticalAlignment="Top" Width="180" Height="55" BorderBrush="{x:Null}" Foreground="White" Background="#FFD32A2A" FontFamily="B Yekan" FontSize="24" RenderTransformOrigin="0.625,0.455"/>
+            <TextBlock FontFamily="B YEKAN" FlowDirection="RightToLeft" Foreground="White" HorizontalAlignment="Left" Margin="22,164,0,0" TextWrapping="Wrap" Text="علی رضا محمد زاده" VerticalAlignment="Top" Width="126"/>
+            <Button Cursor="Hand" Content="ذخیره" HorizontalAlignment="Left" Margin="-1,248,0,0" VerticalAlignment="Top" Width="180" Height="55" BorderBrush="{x:Null}" Foreground="White" Background="#FFD32A2A" FontFamily="B Yekan" FontSize="24" RenderTransformOrigin="0.625,0.455"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="687" Background="#FFD32A2A" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+            <Label Content="x" FontSize="55" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.385,0.196" Foreground="White" Height="80" Margin="13,-19,0,0" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
+            <Label Content="-" FontSize="60" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.385,0.196" Foreground="White" Height="78" Margin="51,-19,0,0" FontWeight="Bold" Width="39" Cursor="Hand"/>
+            <TextBlock FontSize="48" FontFamily="Mj_Tunisia Bold" FlowDirection="RightToLeft" Foreground="White" HorizontalAlignment="Left" Margin="200,-12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" Height="64"><Span><Run FlowDirection="RightToLeft" Text="داشبرد "/></Span><Span><Run Text=" مربیان"/></Span></TextBlock>
+
+        </Grid>
+
+        <Image Source="/window/Morabi/Images/icons8-home-50 (1).png" HorizontalAlignment="Left" Height="30" Margin="811,214,0,0" VerticalAlignment="Top" Width="51"/>
+        <Image Source="Images/AddMember/SaveImage.png" HorizontalAlignment="Left" Height="30" Margin="812,259,0,0" VerticalAlignment="Top" Width="51"/>
+        <Image Source="Images/AddMember/Login.png" HorizontalAlignment="Left" Height="30" Margin="814,312,0,0" VerticalAlignment="Top" Width="51"/>
+        <Image Source="Images/AddMember/recover.png" HorizontalAlignment="Left" Height="30" Margin="813,364,0,0" VerticalAlignment="Top" Width="51"/>
+        <Rectangle RadiusX="45" RadiusY="15" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="120" Margin="705,40,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>
+        <Image Source="Images/notification.png" HorizontalAlignment="Left" Height="45" Margin="85,7,0,0" VerticalAlignment="Top" Width="81" Cursor="Hand"/>
+        <Grid HorizontalAlignment="Right" Height="428" Margin="0,57,180,0" VerticalAlignment="Top" Width="685" Background="#FFDA6565">
+            <Image HorizontalAlignment="Left" Height="198" Margin="10,23,0,0" VerticalAlignment="Top" Width="200"/>
+            <TextBox FontSize="18" x:Name="NameMember_Copy7" FontFamily="B YEKAN"  FlowDirection="RightToLeft" HorizontalAlignment="Left" Height="30" Margin="280,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Background="{x:Null}" BorderBrush="White" Foreground="White" MouseLeftButtonDown="TextBox_MouseLeftButtonDown" MouseDown="NameMember_MouseDown" TextChanged="NameMember_TextChanged" Text="شماره تماس"/>
+            <TextBox FontSize="18" x:Name="NameMember_Copy8" FontFamily="B YEKAN"  FlowDirection="RightToLeft" HorizontalAlignment="Left" Height="30" Margin="280,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Background="{x:Null}" BorderBrush="White" Foreground="White" MouseLeftButtonDown="TextBox_MouseLeftButtonDown" MouseDown="NameMember_MouseDown" TextChanged="NameMember_TextChanged" Text="کد ملی"/>
+        </Grid>
+    </Grid>
+</Window>

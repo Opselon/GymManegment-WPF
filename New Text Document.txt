@@ -1,0 +1,43 @@
+create Procedure Sp_gym
+@UserName varchar(50),
+@UserFamily varchar(100),
+@UserTel varchar (11),
+@UserUserName varchar(50),
+@UserPassword varchar(128),
+@UserAge tinyint ,
+@UserActive tinyint,
+@UserGender tinyint,
+@CodeMeli varchar (10),
+@UserAddress nvarchar(MAX),
+@UserHomePhone varchar(11),
+@UserDoreSine varchar(3),
+@UserDoreBazo varchar(3),
+@UserDoreKamar varchar(3),
+@UserGhaad varchar(3),
+@UserSize varchar(3),
+@UserTamrin tinyint,
+@UserKarkard tinyint,
+@UserSharie tinyint,
+@UserRegTime varchar(25),
+@UserFactor varchar(10),
+@UserPostCode varchar(11),
+@UserRegDate varchar(22),
+@UserCharge varchar(100),
+@UserReCharge money,
+@UserLastCharge money,
+@UserKomod varchar (2),
+@UserImage image
+as
+
+INSERT INTO Users
+
+
+(UserName, UserFamily,UserTel,UserUserName,UserPassword,UserAge,UserActive,
+UserGender, CodeMeli, UserAddress, HomePhone,UserDoreSine, UserDoreBazo,
+ UserDoreKamar, userGhaad, userSize, UserTamrin, UserKarKard , UserShahrie, UserRegTime, UserFactor, UserPostCode,
+ UserRegDate, UserCharge, UserReCharge, UserLastCharge, UsersKomod,UserImage)
+ values
+(@UserName, @UserFamily, @UserTel, @UserUserName, @UserPassword,@UserAge, @UserActive,
+ @UserGender , @UserGender , @UserAddress , @UserHomePhone, @UserDoreSine, @UserDoreBazo
+ , @UserDoreKamar,@UserGhaad, @UserSize, @UserTamrin, @UserKarkard, @userSharie , @UserRegTime,
+ @UserFactor, @UserPostCode, @UserRegDate,@UserCharge, @UserReCharge , @UserLastCharge, @UserKomod, @UserImage)

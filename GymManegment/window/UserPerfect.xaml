@@ -1,0 +1,146 @@
+﻿<Window WindowStyle="ThreeDBorderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManegment.window"
+        xmlns:UserControls="clr-namespace:PersianDatePicker.UserControls;assembly=PersianDatePicker" xmlns:PersianDateControls="clr-namespace:Arash.PersianDateControls;assembly=PersianDateControls" x:Class="GymManegment.window.UserPerfect"
+        mc:Ignorable="d"
+        Title="UserPerfect" Height="349" Width="774" Background="White" Foreground="White" Loaded="Window_Loaded" Icon="/GymManegment;component/img/12.png" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="339*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="318" VerticalAlignment="Top" Width="766" Grid.ColumnSpan="3">
+            <TabItem Header="خلاصه ی لیست" BorderBrush="#FF893F3F" Foreground="Black">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+
+                <Grid Background="#FFE5E5E5" Margin="-149,-78,-187,-34">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="29*"/>
+                        <RowDefinition Height="172*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox FlowDirection="RightToLeft" Header="مدیریت مرد ها" HorizontalAlignment="Left" Height="87" Margin="170,211,0,0" VerticalAlignment="Top" Width="362" FontFamily="B Yekan" FontSize="14" BorderBrush="Black" Foreground="Black" Grid.Row="1"/>
+                    <GroupBox FlowDirection="RightToLeft" Header="مشخصات کلی" HorizontalAlignment="Left" Height="115" Margin="580,183,0,0" VerticalAlignment="Top" Width="320" FontFamily="B Yekan" FontSize="14" BorderBrush="Black" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <GroupBox FlowDirection="RightToLeft" Header="گذارش ماهانه" HorizontalAlignment="Left" Height="124" Margin="579,5,0,0" VerticalAlignment="Top" Width="323" FontFamily="B Yekan" FontSize="14" BorderBrush="Black" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <GroupBox FlowDirection="RightToLeft" Header="مدیریت افراد" HorizontalAlignment="Left" Height="123" Margin="169,8,0,0" VerticalAlignment="Top" Width="358" FontFamily="B Yekan" FontSize="14" BorderBrush="Black" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <GroupBox FlowDirection="RightToLeft" Header="مدیریت زن ها" HorizontalAlignment="Left" Height="84" Margin="169,127,0,0" VerticalAlignment="Top" Width="359" FontFamily="B Yekan" FontSize="14" BorderBrush="Black" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="کل افراد :" HorizontalAlignment="Left" Margin="789,201,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="افراد فعال :" HorizontalAlignment="Left" Margin="776,226,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="افراد غیر فعال :" HorizontalAlignment="Left" Margin="746,251,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="افراد اضافه شده در این ماه :" HorizontalAlignment="Left" Margin="665,22,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="افراد با مربی خصوصی :" HorizontalAlignment="Left" Margin="709,54,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="افراد با بیمه :" HorizontalAlignment="Left" Margin="779,89,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران مرد : " HorizontalAlignment="Left" Margin="323,30,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران زن : " HorizontalAlignment="Left" Margin="329,55,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="میانگین سن ورزشکاران : " HorizontalAlignment="Left" Margin="308,80,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران زن  فعال : " HorizontalAlignment="Left" Margin="285,140,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران زن غیر فعال : " HorizontalAlignment="Left" Margin="260,168,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران مرد  فعال : " HorizontalAlignment="Left" Margin="281,225,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران مرد  غیر فعال : " HorizontalAlignment="Left" Margin="248,255,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label x:Name="N1" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="585,22,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="80" Loaded="N1_Loaded" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="592,54,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="662,89,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1"/>
+                    <Label Name="N2" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="607,201,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="182" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N2_Loaded"/>
+                    <Label FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="663,229,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" Grid.Row="1"/>
+                    <Label Name="N3" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="608,251,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="142" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="Label_Loaded_2"/>
+                    <Label Name="N4" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="207,31,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N4_Loaded"/>
+                    <Label Name="N5" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="212,55,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N5_Loaded"/>
+                    <Label Name="N6" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="191,82,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N6_Loaded"/>
+                    <Label Name="N7" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="171,142,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N7_Loaded"/>
+                    <Label Name="N8" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="143,168,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N8_Loaded"/>
+                    <Label Name="N11" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="168,225,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N11_Loaded"/>
+                    <Label Name="N12" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="136,255,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20" Width="117" OpacityMask="White" Foreground="Black" Grid.Row="1" Loaded="N12_Loaded"/>
+
+
+
+                    <PersianDateControls:PersianCalendar Visibility="Hidden" Name="Taghvim" HorizontalAlignment="Left" Height="100" Margin="537,129,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="ورزشکاران مرد">
+
+                <Grid Background="#FFE5E5E5">
+                    <Image Source="/Once/2-512.png" HorizontalAlignment="Left" Height="45" Margin="389,97,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Opacity="0.2" Source="/pic/gym-drawing-2.jpg" HorizontalAlignment="Left" Height="280" Margin="409,10,-173,0" VerticalAlignment="Top" Width="524"/>
+                    <Image Opacity="0.2" Source="/cool-ppt-backgrounds-cool-powerpoint-background-designs-wallpaperinfinity.jpg" HorizontalAlignment="Left" Height="459" Margin="0,0,0,-169" VerticalAlignment="Top" Width="524"/>
+                    <Image Source="/Once/malecostume-512.png" HorizontalAlignment="Left" Height="45" Margin="389,232,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Source="/Once/male3-512.png" HorizontalAlignment="Left" Height="45" Margin="389,189,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Source="/Once/boy-512.png" HorizontalAlignment="Left" Height="45" Margin="389,143,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Source="/Once/matureman1-512.png" HorizontalAlignment="Left" Height="38" Margin="709,234,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Image Source="/Once/male3-512.png" HorizontalAlignment="Left" Height="38" Margin="711,190,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Image Source="/Once/2.png" HorizontalAlignment="Left" Height="38" Margin="708,53,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Image Source="/Once/Boxer-avatar-occupation-profession-man-human-512.png" HorizontalAlignment="Left" Height="38" Margin="709,5,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران مرد  فعال : " HorizontalAlignment="Left" Margin="481,5,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد مربی های مرد : " HorizontalAlignment="Left" Margin="539,236,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content=" تعداد ورزشکاران مرد غیر فعال : " HorizontalAlignment="Left" Margin="455,56,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content=" کل افراد مرد :  " HorizontalAlignment="Left" Margin="588,191,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="میانگین سن ورزشکاران مرد :  " HorizontalAlignment="Left" Margin="154,98,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران زیر 20 سال :  " HorizontalAlignment="Left" Margin="139,147,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران بالای 20 و زیر 30 سال :  " HorizontalAlignment="Left" Margin="59,192,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران بالای 30 و زیر 40 سال :  " HorizontalAlignment="Left" Margin="59,237,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label x:Name="miangin" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="69,100,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Black" Loaded="miangin_Loaded" Width="94"/>
+                    <Label x:Name="zire_20" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="65,149,0,0" VerticalAlignment="Top" FontSize="18" Loaded="zire_20_Loaded" Width="85"/>
+                    <Label x:Name="zire_30" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="2,195,0,0" VerticalAlignment="Top" FontSize="18" Width="67" Loaded="zire_30_Loaded"/>
+                    <Label  x:Name="zire_40" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="3,239,0,0" VerticalAlignment="Top" FontSize="18" Width="66" Loaded="zire_40_Loaded"/>
+                    <Label x:Name="lbl_faal" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="298,7,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FF36A801" Loaded="Label_Loaded" Width="193"/>
+                    <Label x:Name="lbl_qeirfaal" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="265,59,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Red" Width="198" Loaded="Label_Loaded_1"/>
+                    <Label x:Name="kol_mard" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="503,194,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Black" Loaded="kol_mard_Loaded" Width="99"/>
+                    <Label x:Name="Morabi" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="1 نفر" HorizontalAlignment="Left" Margin="443,239,0,0" VerticalAlignment="Top" FontSize="18" Width="103"/>
+
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="ورزشکاران زن">
+
+                <Grid Background="#FFE5E5E5">
+                    <Image Source="/Once/16-512.png" HorizontalAlignment="Left" Height="45" Margin="389,97,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Opacity="0.2" Source="/pic/gym-drawing-9.jpg" HorizontalAlignment="Left" Height="290" Margin="412,0,-370,0" VerticalAlignment="Top" Width="718"/>
+                    <Image Opacity="0.2" Source="/cool-ppt-backgrounds-cool-powerpoint-background-designs-wallpaperinfinity.jpg" HorizontalAlignment="Left" Height="459" Margin="0,0,0,-169" VerticalAlignment="Top" Width="524"/>
+                    <Image Source="/Once/supportfemale-512.png" HorizontalAlignment="Left" Height="45" Margin="389,232,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Source="/Once/female1-512.png" HorizontalAlignment="Left" Height="45" Margin="389,189,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Source="/Once/girl-512.png" HorizontalAlignment="Left" Height="45" Margin="389,143,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Image Source="/Once/if_maturewoman_628297.png" HorizontalAlignment="Left" Height="35" Margin="711,237,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Image Source="/Once/female1-512.png" HorizontalAlignment="Left" Height="38" Margin="711,190,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Image Source="/Once/2.png" HorizontalAlignment="Left" Height="38" Margin="708,53,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Image Source="/Once/Boxer-avatar-occupation-profession-man-human-512.png" HorizontalAlignment="Left" Height="38" Margin="709,5,0,0" VerticalAlignment="Top" Width="41"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران زن  فعال : " HorizontalAlignment="Left" Margin="481,5,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد مربی های زن : " HorizontalAlignment="Left" Margin="539,236,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content=" تعداد ورزشکاران زن غیر فعال : " HorizontalAlignment="Left" Margin="455,56,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content=" کل افراد زن :  " HorizontalAlignment="Left" Margin="588,191,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="میانگین سن ورزشکاران زن :  " HorizontalAlignment="Left" Margin="154,98,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران زیر 20 سال :  " HorizontalAlignment="Left" Margin="139,147,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران بالای 20 و زیر 30 سال :  " HorizontalAlignment="Left" Margin="59,192,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label FlowDirection="RightToLeft" Content="تعداد ورزشکاران بالای 30 و زیر 40 سال :  " HorizontalAlignment="Left" Margin="59,237,0,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="20"/>
+                    <Label x:Name="ALabelmiangin" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="69,100,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Black" Loaded="ALabelmiangin_Loaded" Width="94"/>
+                    <Label x:Name="azire_20" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="65,149,0,0" VerticalAlignment="Top" FontSize="18" Width="85" Loaded="azire_20_Loaded"/>
+                    <Label x:Name="azire_30" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="2,195,0,0" VerticalAlignment="Top" FontSize="18" Width="67" Loaded="azire_30_Loaded"/>
+                    <Label  x:Name="azire_40" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="3,239,0,0" VerticalAlignment="Top" FontSize="18" Width="66" Loaded="azire_40_Loaded"/>
+                    <Label x:Name="albl_faal" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="298,7,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FF36A801" Loaded="albl_faal_Loaded" Width="193"/>
+                    <Label x:Name="albl_qeirfaal" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="265,59,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Red" Width="198" Loaded="albl_qeirfaal_Loaded"/>
+                    <Label x:Name="Alkol_mard" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="نفر" HorizontalAlignment="Left" Margin="503,194,0,0" VerticalAlignment="Top" FontSize="18" Foreground="Black" Loaded="Alkol_mard_Loaded" Width="99"/>
+                    <Label x:Name="aMorabi" FontFamily="B Yekan" FlowDirection="RightToLeft" Content="1 نفر" HorizontalAlignment="Left" Margin="443,239,0,0" VerticalAlignment="Top" FontSize="18" Width="103"/>
+
+                </Grid>
+
+            </TabItem>
+
+
+        </TabControl>
+
+
+
+
+
+
+    </Grid>
+</Window>

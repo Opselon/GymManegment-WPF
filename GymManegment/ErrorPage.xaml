@@ -1,0 +1,44 @@
+﻿<Window x:Class="GymManegment.window.ErrorPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManegment.window"
+        mc:Ignorable="d"
+        Title="Window1" Height="151.253" Width="434.54" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="none" >
+    <Grid>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="139" Margin="10,12,0,0" Stroke="Black" VerticalAlignment="Top" Width="425" OpacityMask="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="26" Margin="10,12,0,0" Stroke="Black" VerticalAlignment="Top" Width="425" Fill="Black"/>
+        <Label Name="Error_Lable" FlowDirection="RightToLeft" Content="شما هیچکس را انتخاب نکردید" HorizontalAlignment="Right" Margin="0,61,162,0" VerticalAlignment="Top" FontFamily="B Yekan" FontSize="16" Width="233" Height="32">
+        </Label>
+        <Label Content="برنامه با مشکل مواجه شده است" HorizontalAlignment="Left" Margin="123,12,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button Content="تلاش دوباره" HorizontalAlignment="Left" Margin="18,112,0,0" VerticalAlignment="Top" Width="82" Foreground="Black" BorderBrush="Black" Height="34" RenderTransformOrigin="0.667,0.099" Click="Button_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFCFBDDA" Offset="0.41800001263618469"/>
+                    <GradientStop Color="#FF9B86A8" Offset="0.418"/>
+                    <GradientStop Color="#FF00FF1F" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image Source="/GymManegment;component/img/n1443129.jpg" HorizontalAlignment="Left" Height="112" Margin="297,38,-79,0" VerticalAlignment="Top" Width="217"/>
+        <Image  Source="/pic/Error1.png" HorizontalAlignment="Left" Height="20" Margin="290,16,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="2.562,0.55"/>
+        <Image  Source="/GymManegment;component/pic/Error.png" HorizontalAlignment="Left" Height="20" Margin="279,68,0,0" VerticalAlignment="Top" Width="32"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="112" Margin="10,38,0,0" VerticalAlignment="Top" Width="425">
+            <Button Content="رفع مشکل" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Foreground="Black" BorderBrush="Black" Height="34" RenderTransformOrigin="0.667,0.099" Click="Button_Click_1" Margin="93,73,0,0" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="#FFCFBDDA" Offset="0.41800001263618469"/>
+                        <GradientStop Color="#FF9B86A8" Offset="0.418"/>
+                        <GradientStop Color="#FFFF6800" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Border>
+        <Border Opacity="0.2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="40,60,0,58" Width="267"/>
+        <Border BorderBrush="#FFC7B29D" BorderThickness="1" HorizontalAlignment="Left" Height="33" Margin="274,60,0,0" VerticalAlignment="Top" Width="1"/>
+
+    </Grid>
+</Window>

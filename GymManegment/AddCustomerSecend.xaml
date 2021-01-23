@@ -1,0 +1,164 @@
+﻿<Window WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymManegment.window"
+        xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/presentation/ribbon" x:Class="GymManegment.window.AddCustomerSecend" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="AddCustomer" Height="539.587" Width="379.968" >
+    <Window.Resources>
+        <LinearGradientBrush x:Key="NormalBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FFDC3939" Offset="0.0"/>
+                    <GradientStop Color="#FFE80E0E" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF171C21" />
+
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" Grid.ColumnSpan="2" CornerRadius="2"
+  Background="{StaticResource NormalBrush}"
+  BorderThickness="1" />
+                <Border 
+  Grid.Column="0"
+  CornerRadius="2,0,0,2" 
+  Margin="1" 
+  Background="{StaticResource WindowBackgroundBrush}" 
+  BorderThickness="0,0,1,0" />
+                <Path 
+  x:Name="Arrow"
+  Grid.Column="1"     
+  HorizontalAlignment="Center"
+  VerticalAlignment="Center"
+  Data="M 0 0 L 4 4 L 8 0 Z"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton 
+         Name="ToggleButton" 
+         Template="{StaticResource ComboBoxToggleButton}" 
+         Grid.Column="2" 
+         Focusable="false"
+         IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+         ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter
+        Name="ContentSite"
+        IsHitTestVisible="False" 
+        Margin="3,3,23,3"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+         Style="{x:Null}" 
+         Template="{StaticResource ComboBoxTextBox}" 
+         HorizontalAlignment="Left" 
+         VerticalAlignment="Center" 
+         Margin="3,3,23,3"
+         Focusable="True" 
+         Background="Transparent"
+         Visibility="Hidden"
+         IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+        Name="Popup"
+        Placement="Bottom"
+        IsOpen="{TemplateBinding IsDropDownOpen}"
+        AllowsTransparency="True" 
+        Focusable="False"
+        PopupAnimation="Slide">
+                                <Grid 
+          Name="DropDown"
+          SnapsToDevicePixels="True"                
+          MinWidth="{TemplateBinding ActualWidth}"
+          MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+            x:Name="DropDownBorder"
+            Background="{StaticResource WindowBackgroundBrush}"
+            BorderThickness="1"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="0.281"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Rectangle Fill="#FF2B323A" HorizontalAlignment="Left" RadiusY="80" RadiusX="40" Width="370" Margin="0,0,0,10"/>
+
+        <Rectangle Fill="#FF374555" HorizontalAlignment="Left" RadiusY="40" RadiusX="30" Width="370" Margin="0,0,0,421"/>
+        <TextBox Name="Username_txt" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="144,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" Text="نام کاربری" FontSize="16" MouseEnter="TextBox_MouseEnter" MouseLeave="Username_txt_MouseLeave" TextAlignment="Center"/>
+        <TextBox  Name="Password_txt" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="145,22,0,0" TextWrapping="Wrap" Text="رمز عبور" VerticalAlignment="Top" Width="207" Background="#FF1D252D" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextAlignment="Center"/>
+        <Image  Name="Location_txt" Source="/1/4/Untitled-1.jpg" HorizontalAlignment="Left" Height="23" Margin="323,61,0,0" VerticalAlignment="Top" Width="37"/>
+        <Image Source="/GymManegment;component/1/4/Untitled-2.jpg" HorizontalAlignment="Left" Height="23" Margin="324,24,0,0" VerticalAlignment="Top" Width="36"/>
+        <TextBox  FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="81,137,0,0" TextWrapping="Wrap" Text="نام باشگاه " VerticalAlignment="Top" Width="207" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextAlignment="Center"/>
+        <TextBox Name="RegKey_txt" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="27,169,0,0" TextWrapping="Wrap" Text="توضیحات باشگاه" VerticalAlignment="Top" Width="317" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <ComboBox x:Name="Comb_Copy" FlowDirection="RightToLeft" HorizontalAlignment="Left" Margin="85,387,0,0" VerticalAlignment="Top" Width="207" Text="انتخاب ماه" SelectedIndex="0" Cursor="Hand" SelectionChanged="ComboBox_SelectionChanged" Foreground="#FFFFD5D4" BorderBrush="Black" Background="#FFA28D90" Height="22">
+            <ComboBoxItem Content="کاراته" />
+
+            <ComboBoxItem Content="بکس" />
+            <ComboBoxItem Content="فوتبال" />
+            <ComboBoxItem Content="والیبال" />
+            <ComboBoxItem Content="بدن سازی" />
+        </ComboBox>
+        <TextBox Name="Phone_txt" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="27,201,0,0" TextWrapping="Wrap" Text="آدرس دقیق باشگاه" VerticalAlignment="Top" Width="317" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <Label FontFamily="B YEKAN" Content="بدن سازی" HorizontalAlignment="Left" Margin="162,384,0,0" VerticalAlignment="Top" Width="100" Foreground="#FFA79AAC"/>
+        <Rectangle RadiusY="80" RadiusX="80" HorizontalAlignment="Left" Height="91" Margin="17,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/GymManegment;component/Once/female1-512.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Ellipse HorizontalAlignment="Left" Height="91" Margin="17,10,0,0" Stroke="#FFEC6E6A" VerticalAlignment="Top" Width="102"/>
+        <Ellipse HorizontalAlignment="Left" Height="91" Margin="16,10,0,0" Stroke="#FFEC6E6A" VerticalAlignment="Top" Width="103"/>
+        <Ellipse HorizontalAlignment="Left" Height="93" Margin="15,9,0,0" Stroke="#FFEC6E6A" VerticalAlignment="Top" Width="105"/>
+        <Ellipse HorizontalAlignment="Left" Height="91" Margin="16,10,0,0" Stroke="#FFEC6E6A" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="Phone_txt_Copy" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="27,233,0,0" TextWrapping="Wrap" Text="شماره تماس باشگاه" VerticalAlignment="Top" Width="317" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBox x:Name="Phone_txt_Copy1" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="201,302,0,0" TextWrapping="Wrap" Text="نام" VerticalAlignment="Top" Width="143" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBox x:Name="Phone_txt_Copy2" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="27,302,0,0" TextWrapping="Wrap" Text="نام خانوادگی" VerticalAlignment="Top" Width="169" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBox x:Name="Phone_txt_Copy3" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="201,341,0,0" TextWrapping="Wrap" Text="سن " VerticalAlignment="Top" Width="143" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBox x:Name="Phone_txt_Copy4" FlowDirection="LeftToRight" HorizontalAlignment="Left" Height="27" Margin="27,341,0,0" TextWrapping="Wrap" Text="ادرس ایمیل" VerticalAlignment="Top" Width="169" Background="#FF1E262E" BorderBrush="{x:Null}" IsEnabled="True" Foreground="White" FontSize="16" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <GroupBox FlowDirection="RightToLeft" Header="اطلاعات شخصی" HorizontalAlignment="Left" Height="100" Margin="20,279,0,0" VerticalAlignment="Top" Width="332" Foreground="White"/>
+        <GroupBox FlowDirection="RightToLeft" Header="اطلاعات باشگاه" HorizontalAlignment="Left" Height="155" Margin="17,116,0,0" VerticalAlignment="Top" Width="335" Foreground="White"/>
+        <Button Cursor="Hand" FontFamily="B YEKAN" Content="به روز رسانی اطلاعات تکمیلی" HorizontalAlignment="Left" Margin="27,430,0,0" VerticalAlignment="Top" Width="317" Height="44" Background="#FFDA5958" Foreground="White" BorderBrush="#FFF26261"/>
+
+
+    </Grid>
+</Window>

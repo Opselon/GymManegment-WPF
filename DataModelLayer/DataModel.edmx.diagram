@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="946df942b6e24ae98081051bc3dc4293" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="gymModel.Customers" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="gymModel.Inv" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="gymModel.LockTable" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="gymModel.Members" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="gymModel.Users" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="gymModel.InvView" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="gymModel.VW_Customers" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="gymModel.VW_Member" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="gymModel.VW_Users" Width="1.5" PointX="9.75" PointY="0.75" />
+        <AssociationConnector Association="gymModel.FK__Customers__UserI__1A69E950" />
+        <AssociationConnector Association="gymModel.FK__Inv__UserID__1B5E0D89" />
+        <AssociationConnector Association="gymModel.FK__Members__MemberF__1C5231C2" />
+        <EntityTypeShape EntityType="gymModel.UsersTimeOut" Width="1.5" PointX="3" PointY="12.5" />
+        <AssociationConnector Association="gymModel.FK_UsersTimeOut_Users" />
+        <EntityTypeShape EntityType="gymModel.VW_TimeOut" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="gymModel.FoodTemplates" Width="1.5" PointX="7.375" PointY="13.25" />
+        <EntityTypeShape EntityType="gymModel.ListMove" Width="1.5" PointX="9.375" PointY="13.25" />
+        <EntityTypeShape EntityType="gymModel.MorabiTable" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="gymModel.ProgramList" Width="1.5" PointX="11.375" PointY="13.25" />
+        <EntityTypeShape EntityType="gymModel.vegetablesTable" Width="1.5" PointX="12.375" PointY="3.25" />
+        <EntityTypeShape EntityType="gymModel.MorabiTable_View" Width="1.5" PointX="12.375" PointY="7.25" />
+        <EntityTypeShape EntityType="gymModel.VW_Foods" Width="1.5" PointX="13.375" PointY="12.25" />
+        <AssociationConnector Association="gymModel.FK_Users_MorabiFind" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
