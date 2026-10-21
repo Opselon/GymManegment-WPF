@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Composition root: WPF views + view-models + DI wiring. The only project
+    allowed to know about WPF and about every other layer.
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <RootNamespace>GymPro.Presentation</RootNamespace>
+    <AssemblyName>GymPro</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GymPro.Domain\GymPro.Domain.csproj" />
+    <ProjectReference Include="..\GymPro.Application\GymPro.Application.csproj" />
+    <ProjectReference Include="..\GymPro.Infrastructure\GymPro.Infrastructure.csproj" />
+    <ProjectReference Include="..\GymPro.Persistence\GymPro.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shipped alongside the executable so the host can read it at run time. -->
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>

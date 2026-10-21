@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+# Cancel superseded runs on the same ref: a mid-flight push makes the older run
+# pointless, and CI minutes are better spent on the newest commit.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  build-and-test:
+    name: Build, analyse and test
+    runs-on: windows-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Install the .NET SDK from global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Report the SDK in use
+        run: dotnet --info
+
+      - name: Restore
+        run: dotnet restore GymPro.slnx
+
+      # Warnings are errors solution-wide (Directory.Build.props), so this step
+      # fails on any warning, not just on compile errors.
+      - name: Build
+        run: dotnet build GymPro.slnx --no-restore --configuration Release
+
+      - name: Test
+        run: dotnet test GymPro.slnx --no-build --configuration Release --logger "trx;LogFileName=results.trx" --results-directory TestResults
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults
+          if-no-files-found: warn
+          retention-days: 7
+
+  dependency-audit:
+    name: Audit dependencies for known vulnerabilities
+    runs-on: windows-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Install the .NET SDK from global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      # NuGet audit already runs during restore; this step makes a vulnerable
+      # transitive package a hard CI failure instead of a passing warning.
+      - name: Restore with the vulnerability audit promoted to an error
+        run: dotnet restore GymPro.slnx -p:NuGetAuditMode=all -p:WarningsAsErrors=NU1901,NU1902,NU1903,NU1904
+
+  format:
+    name: Verify formatting
+    runs-on: windows-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Install the .NET SDK from global.json
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore GymPro.slnx
+
+      - name: Fail on unformatted files
+        run: dotnet format GymPro.slnx --verify-no-changes --no-restore --verbosity diagnostic

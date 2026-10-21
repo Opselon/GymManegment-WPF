@@ -1,0 +1,28 @@
+<UserControl x:Class="GymPro.Presentation.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="RightToLeft">
+    <Grid>
+        <Border Background="{StaticResource SurfaceRaisedBrush}" CornerRadius="12"
+                MaxWidth="420" Padding="32" VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="ورود به سیستم" Style="{StaticResource HeadingText}"
+                           HorizontalAlignment="Center" Margin="0,0,0,24" />
+
+                <TextBlock Text="نام کاربری" Style="{StaticResource MutedText}" Margin="0,0,0,6" />
+                <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+
+                <TextBlock Text="رمز عبور" Style="{StaticResource MutedText}" Margin="0,16,0,6" />
+                <PasswordBox x:Name="PasswordInput" PasswordChanged="OnPasswordChanged" />
+
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="{StaticResource DangerBrush}"
+                           TextWrapping="Wrap" Margin="0,14,0,0" />
+
+                <Button Content="ورود" Command="{Binding SignInCommand}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"
+                        Margin="0,24,0,0" Height="42" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
