@@ -2,45 +2,66 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="GymPro"
-        Height="760" Width="1220"
-        MinHeight="560" MinWidth="920"
+        Height="800" Width="1280"
+        MinHeight="600" MinWidth="1000"
         Background="{StaticResource SurfaceBrush}"
         WindowStartupLocation="CenterScreen"
-        FlowDirection="RightToLeft">
+        FlowDirection="RightToLeft"
+        UseLayoutRounding="True"
+        TextOptions.TextFormattingMode="Display">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="{StaticResource SurfaceRaisedBrush}" Padding="20,14">
-            <Grid>
+        <!-- Header: brand, navigation, session. The nav appears only after
+             sign-in so the login card has no distractions. -->
+        <Border Grid.Row="0" Background="{StaticResource SurfaceRaisedBrush}"
+                BorderBrush="{StaticResource BorderSoftBrush}"
+                BorderThickness="0,0,0,1"
+                Padding="22,0">
+            <Grid Height="60">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0" Orientation="Horizontal">
-                    <TextBlock Text="GymPro" Style="{StaticResource HeadingText}" />
-                    <TextBlock Text="  |  باشگاه ورزشی" Style="{StaticResource MutedText}"
-                               VerticalAlignment="Center" Margin="8,0,0,0" />
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="GymPro" FontSize="19" FontWeight="Bold"
+                               VerticalAlignment="Center" />
+                    <Border Width="1" Height="18" Background="{StaticResource BorderBrush}"
+                            Margin="14,0" VerticalAlignment="Center" />
+                    <TextBlock Text="باشگاه ورزشی" Style="{StaticResource MutedText}"
+                               FontSize="13" VerticalAlignment="Center" />
                 </StackPanel>
 
-                <!-- Menu stays hidden until sign-in, so the login screen has no navigation. -->
                 <StackPanel x:Name="MenuBar" Grid.Column="1" Orientation="Horizontal"
                             HorizontalAlignment="Center" VerticalAlignment="Center"
                             Visibility="Collapsed">
-                    <Button Content="داشبورد" Click="OnDashboardClick" Style="{StaticResource MenuButton}" />
-                    <Button Content="اعضا" Click="OnMembersClick" Style="{StaticResource MenuButton}" />
-                    <Button Content="ورود و خروج" Click="OnAttendanceClick" Style="{StaticResource MenuButton}" />
-                    <Button Content="گزارش‌ها" Click="OnReportsClick" Style="{StaticResource MenuButton}" />
+                    <Button x:Name="NavDashboard" Content="داشبورد"
+                            Click="OnDashboardClick" Style="{StaticResource NavButton}" />
+                    <Button x:Name="NavMembers" Content="اعضا"
+                            Click="OnMembersClick" Style="{StaticResource NavButton}" />
+                    <Button x:Name="NavAttendance" Content="ورود و خروج"
+                            Click="OnAttendanceClick" Style="{StaticResource NavButton}" />
+                    <Button x:Name="NavMeasurements" Content="اندازه‌گیری"
+                            Click="OnMeasurementsClick" Style="{StaticResource NavButton}" />
+                    <Button x:Name="NavReports" Content="گزارش‌ها"
+                            Click="OnReportsClick" Style="{StaticResource NavButton}" />
+                    <Button x:Name="NavBackup" Content="پشتیبان"
+                            Click="OnBackupClick" Style="{StaticResource NavButton}" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock x:Name="SignedInAs" Style="{StaticResource MutedText}"
-                               VerticalAlignment="Center" Margin="0,0,12,0" />
-                    <TextBlock Text="v2.0" Style="{StaticResource MutedText}" VerticalAlignment="Center" />
+                               VerticalAlignment="Center" Margin="0,0,14,0" />
+                    <Border Background="{StaticResource SurfaceControlBrush}"
+                            CornerRadius="999" Padding="10,4" VerticalAlignment="Center">
+                        <TextBlock Text="v2.0" Style="{StaticResource MutedText}"
+                                   FontSize="11" FontWeight="SemiBold" />
+                    </Border>
                 </StackPanel>
             </Grid>
         </Border>

@@ -34,6 +34,10 @@ public static class ServiceRegistration
         services.AddTransient<MembersViewModel>();
         services.AddTransient<AttendanceView>();
         services.AddTransient<AttendanceViewModel>();
+        services.AddTransient<MeasurementsView>();
+        services.AddTransient<MeasurementsViewModel>();
+        services.AddTransient<BackupView>();
+        services.AddTransient<BackupViewModel>();
         services.AddTransient<ReportsView>();
         services.AddTransient<ReportsViewModel>();
 

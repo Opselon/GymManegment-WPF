@@ -1,0 +1,69 @@
+<UserControl x:Class="GymPro.Presentation.Views.BackupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="RightToLeft"
+             Background="{StaticResource SurfaceBrush}">
+    <Grid Margin="24,20,24,24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="پشتیبان‌گیری"
+                   Style="{StaticResource HeadingText}"
+                   HorizontalAlignment="Left" Margin="0,0,0,16" />
+
+        <Border Grid.Row="1" Style="{StaticResource Card}" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="نسخه پشتیبان" Style="{StaticResource CardTitle}"
+                           Margin="0,0,0,6" />
+                <TextBlock Text="از پایگاه داده اعضا و عضویت‌ها یک نسخه پشتیبان تهیه کنید. فایل‌ها در مسیر پیکربندی‌شده ذخیره می‌شوند."
+                           Style="{StaticResource MutedText}" TextWrapping="Wrap"
+                           Margin="0,0,0,16" />
+
+                <!-- Actions: create on the right, prune on the left, separated
+                     so the destructive action is not clicked by mistake. -->
+                <Grid Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Content="ساخت پشتیبان جدید"
+                            Command="{Binding CreateBackupCommand}" />
+
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="نگهداری آخرین" Style="{StaticResource FieldLabel}"
+                                   VerticalAlignment="Center" Margin="0,0,6,0" />
+                        <TextBox Width="48" Text="{Binding KeepNewest, UpdateSourceTrigger=PropertyChanged}"
+                                 VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+                        <TextBlock Text="نسخه" Style="{StaticResource FieldLabel}"
+                                   VerticalAlignment="Center" Margin="6,0,10,0" />
+                        <Button Content="حذف قدیمی‌ها" Command="{Binding PruneBackupsCommand}"
+                                Style="{StaticResource DangerButton}" />
+                    </StackPanel>
+                </Grid>
+
+                <!-- Star ratios, not fixed pixels: a wide window must not stretch
+                     the file name column across the whole card. -->
+                <DataGrid ItemsSource="{Binding Backups}" Height="260">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="نام فایل" Binding="{Binding FileName}" Width="2*" />
+                        <DataGridTextColumn Header="حجم" Binding="{Binding Size}" Width="*" />
+                        <DataGridTextColumn Header="تاریخ ایجاد" Binding="{Binding CreatedAt}" Width="1.4*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="هنوز فایل پشتیبانی وجود ندارد. «ساخت پشتیبان جدید» را بزنید."
+                           Style="{StaticResource EmptyStateText}"
+                           Margin="0,10,0,0"
+                           Visibility="{Binding Backups.Count, Converter={StaticResource ZeroToVisibility}}" />
+
+                <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource BannerInfo}"
+                           TextWrapping="Wrap" Margin="0,14,0,0" />
+                <TextBlock Text="{Binding ErrorMessage}" Style="{StaticResource BannerError}"
+                           TextWrapping="Wrap" Margin="0,6,0,0" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
