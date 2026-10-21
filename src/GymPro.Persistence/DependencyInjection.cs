@@ -23,6 +23,11 @@ public static class DependencyInjection
         services.AddScoped<IUserWriteRepository, UserRepository>();
         services.AddScoped<IUserReadRepository>(sp => (UserRepository)sp.GetRequiredService<IUserWriteRepository>());
 
+        services.AddScoped<ICheckInWriteRepository, CheckInWriteRepository>();
+        services.AddScoped<ICheckInReadRepository, CheckInReadRepository>();
+        services.AddScoped<IMeasurementWriteRepository, MeasurementWriteRepository>();
+        services.AddScoped<IMeasurementReadRepository, MeasurementReadRepository>();
+
         return services;
     }
 }

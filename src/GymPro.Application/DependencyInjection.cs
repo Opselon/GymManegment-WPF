@@ -1,11 +1,16 @@
 using FluentValidation;
 using GymPro.Application.Abstractions;
-using GymPro.Domain.Common;
+using GymPro.Application.Attendance.Commands.CheckInMember;
+using GymPro.Application.Attendance.Commands.RecordMeasurement;
+using GymPro.Application.Attendance.Queries.ListCheckIns;
+using GymPro.Application.Attendance.Queries.ListMeasurements;
 using GymPro.Application.Memberships.Commands.ChargeMembership;
 using GymPro.Application.Memberships.Commands.RegisterMember;
 using GymPro.Application.Memberships.Queries.Dashboard;
 using GymPro.Application.Memberships.Queries.ListMembers;
+using GymPro.Application.Reporting.Queries.ExportMembers;
 using GymPro.Application.Users.Commands.AuthenticateUser;
+using GymPro.Domain.Common;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GymPro.Application;
@@ -31,6 +36,11 @@ public static class DependencyInjection
         AddHandler<AuthenticateUserCommand, Result<AuthenticatedUser>, AuthenticateUserHandler>(services);
         AddHandler<ListMembersQuery, IReadOnlyList<MemberListItem>, ListMembersHandler>(services);
         AddHandler<GetDashboardQuery, DashboardSummary, GetDashboardHandler>(services);
+        AddHandler<CheckInMemberCommand, Result<CheckInReceipt>, CheckInMemberHandler>(services);
+        AddHandler<ListCheckInsQuery, IReadOnlyList<CheckInListItem>, ListCheckInsHandler>(services);
+        AddHandler<RecordMeasurementCommand, Result<int>, RecordMeasurementHandler>(services);
+        AddHandler<ListMeasurementsQuery, IReadOnlyList<MeasurementListItem>, ListMeasurementsHandler>(services);
+        AddHandler<ExportMembersQuery, Result<ReportFile>, ExportMembersHandler>(services);
 
         // Validators
         AddValidator<RegisterMemberCommand, RegisterMemberCommandValidator>(services);

@@ -16,16 +16,32 @@
         <Border Grid.Row="0" Background="{StaticResource SurfaceRaisedBrush}" Padding="20,14">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+
                 <StackPanel Grid.Column="0" Orientation="Horizontal">
                     <TextBlock Text="GymPro" Style="{StaticResource HeadingText}" />
                     <TextBlock Text="  |  باشگاه ورزشی" Style="{StaticResource MutedText}"
                                VerticalAlignment="Center" Margin="8,0,0,0" />
                 </StackPanel>
-                <TextBlock Grid.Column="1" Text="v2.0" Style="{StaticResource MutedText}"
-                           VerticalAlignment="Center" />
+
+                <!-- Menu stays hidden until sign-in, so the login screen has no navigation. -->
+                <StackPanel x:Name="MenuBar" Grid.Column="1" Orientation="Horizontal"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Visibility="Collapsed">
+                    <Button Content="داشبورد" Click="OnDashboardClick" Style="{StaticResource MenuButton}" />
+                    <Button Content="اعضا" Click="OnMembersClick" Style="{StaticResource MenuButton}" />
+                    <Button Content="ورود و خروج" Click="OnAttendanceClick" Style="{StaticResource MenuButton}" />
+                    <Button Content="گزارش‌ها" Click="OnReportsClick" Style="{StaticResource MenuButton}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock x:Name="SignedInAs" Style="{StaticResource MutedText}"
+                               VerticalAlignment="Center" Margin="0,0,12,0" />
+                    <TextBlock Text="v2.0" Style="{StaticResource MutedText}" VerticalAlignment="Center" />
+                </StackPanel>
             </Grid>
         </Border>
 

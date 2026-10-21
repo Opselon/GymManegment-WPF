@@ -1,4 +1,5 @@
 using GymPro.Application.Abstractions;
+using GymPro.Domain.Attendance;
 using GymPro.Domain.Common;
 using GymPro.Domain.Memberships;
 using GymPro.Domain.ValueObjects;
@@ -71,4 +72,30 @@ internal sealed class FixedClock : TimeProvider
         => _now = new DateTimeOffset(year, month, day, 10, 0, 0, TimeSpan.FromHours(3.5));
 
     public override DateTimeOffset GetUtcNow() => _now;
+}
+
+/// <summary>
+/// In-memory attendance log. Stands in for ICheckInWriteRepository's write face;
+/// ListRecent projections are covered by the persistence tests against SQLite.
+/// </summary>
+internal sealed class FakeCheckInStore : ICheckInWriteRepository
+{
+    private readonly List<CheckIn> _items = [];
+
+    public IReadOnlyList<CheckIn> All => _items;
+
+    public void Add(CheckIn checkIn) => _items.Add(checkIn);
+
+    public Task<int> CountForDateAsync(JalaliDate day, CancellationToken cancellationToken = default)
+        => Task.FromResult(_items.Count(c => c.CheckedInOn == day));
+}
+
+/// <summary>In-memory measurement store.</summary>
+internal sealed class FakeMeasurementStore : IMeasurementWriteRepository
+{
+    private readonly List<BodyMeasurement> _items = [];
+
+    public IReadOnlyList<BodyMeasurement> All => _items;
+
+    public void Add(BodyMeasurement measurement) => _items.Add(measurement);
 }

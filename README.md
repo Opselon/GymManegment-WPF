@@ -113,13 +113,23 @@ implemented and tested; "UI" means there is a screen for it.
 | Payments | Ledger per member, outstanding balance | Implemented | Partial — via charge command |
 | Dashboard | Active members, expiring this month, total debt | Implemented | Implemented |
 | Staff accounts | Roles (Admin, Coach, Receptionist), PBKDF2 sign-in | Implemented | Sign-in only |
-| Attendance | Immutable check-in log, QR payload rendering | Implemented | Not yet |
-| Body measurements | Per-member progress, nullable metrics | Implemented | Not yet |
-| Reporting | Excel export of member and revenue extracts | Implemented (library) | Not yet |
+| Attendance | Immutable check-in log, expired-member guard, QR payload rendering | Implemented | Implemented — check in, see today's log |
+| Body measurements | Per-member progress, nullable metrics | Implemented | Partial — handlers and storage; no screen |
+| Reporting | Excel export of the member list | Implemented | Implemented — save dialog |
 | Backup | `BACKUP DATABASE … WITH COPY_ONLY`, retention pruning | Implemented | Not yet |
 
-The remaining UI work is screens over handlers that already exist and are
-tested; no new business rules are needed for them.
+First run creates the database and seeds a single administrator account
+(`admin` / `admin`) so a fresh clone can be signed into; change that password
+before the app is used for real.
+
+What remains for the modules still marked partial or "Not yet": a measurement
+entry screen over `RecordMeasurementCommand`, and a backup screen over
+`SqlServerBackupService`. Both are screens over handlers that already exist and
+are tested; no new business rules are needed.
+
+Check-in and check-out is recorded as check-in only: the sheet has no exit time
+column, and inventing one would change the domain model rather than add a
+screen.
 
 What is deliberately *not* built: no SMS gateway, no online payment processor,
 no multi-branch tenancy, and no automatic migration of the old database. Each
