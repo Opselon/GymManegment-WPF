@@ -79,6 +79,41 @@
         </Setter>
     </Style>
 
+    <Style x:Key="MenuButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="14,8" />
+        <Setter Property="Margin" Value="2,0" />
+        <Setter Property="FontFamily" Value="Segoe UI, Tahoma" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Chrome" Background="{TemplateBinding Background}" CornerRadius="6">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                          Margin="{TemplateBinding Padding}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Chrome" Property="Background" Value="#FF2A3038" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Background" Value="#FF1A1F27" />
+        <Setter Property="Foreground" Value="{StaticResource TextMutedBrush}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="BorderBrush" Value="#FF2E3440" />
+        <Setter Property="BorderThickness" Value="0,0,1,1" />
+    </Style>
+
     <Style TargetType="DataGrid">
         <Setter Property="Background" Value="{StaticResource SurfaceRaisedBrush}" />
         <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}" />
@@ -89,5 +124,6 @@
         <Setter Property="AutoGenerateColumns" Value="False" />
         <Setter Property="IsReadOnly" Value="True" />
         <Setter Property="FontFamily" Value="Segoe UI, Tahoma" />
+        <Setter Property="HeadersVisibility" Value="Column" />
     </Style>
 </ResourceDictionary>

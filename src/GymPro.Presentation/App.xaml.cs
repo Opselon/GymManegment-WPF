@@ -25,6 +25,10 @@ public partial class App : System.Windows.Application
 
         await _host.StartAsync();
 
+        // The database must exist and have an account before the login screen
+        // appears, otherwise a first run cannot be signed into at all.
+        await DatabaseInitializer.InitializeAsync(_host.Services);
+
         var shell = _host.Services.GetRequiredService<ShellWindow>();
         MainWindow = shell;
         shell.Show();

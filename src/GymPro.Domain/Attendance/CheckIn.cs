@@ -19,6 +19,40 @@ public sealed class CheckIn
     public int Id { get; }
     public int MembershipId { get; }
     public JalaliDate CheckedInOn { get; }
+
+    /// <summary>
+    /// Records a check-in for a member.
+    /// </summary>
+    /// <remarks>
+    /// The aggregate is passed in rather than its id so the eligibility rule
+    /// cannot be bypassed by a caller that only has an integer: an expired,
+    /// inactive or banned member must not be able to enter the gym.
+    /// </remarks>
+    /// <exception cref="ArgumentException">The check-in is dated in the future.</exception>
+    /// <exception cref="InvalidOperationException">The membership cannot attend on that date.</exception>
+    public static CheckIn Record(Membership membership, JalaliDate on, TimeProvider clock)
+    {
+        ArgumentNullException.ThrowIfNull(membership);
+
+        if (on > JalaliDate.Today(clock))
+        {
+            throw new ArgumentException("A check-in cannot be dated in the future.", nameof(on));
+        }
+
+        if (membership.Status is MemberStatus.Inactive or MemberStatus.Banned or MemberStatus.Expired)
+        {
+            throw new InvalidOperationException(
+                $"Membership {membership.Id} is {membership.Status} and cannot check in.");
+        }
+
+        if (membership.IsExpired(on))
+        {
+            throw new InvalidOperationException(
+                $"Membership {membership.Id} expired on {membership.EndOfCoverage} and cannot check in.");
+        }
+
+        return new CheckIn(0, membership.Id, on);
+    }
 }
 
 /// <summary>

@@ -6,49 +6,76 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="اعضا" Style="{StaticResource HeadingText}" Margin="0,0,0,16" />
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,16">
+            <TextBlock Text="اعضا" Style="{StaticResource HeadingText}" />
+            <TextBox Width="220" Margin="20,4,0,0" VerticalAlignment="Center"
+                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                     ToolTip="جستجو بر اساس نام یا کد ملی" />
+            <Button Content="جستجو" Command="{Binding RefreshCommand}"
+                    Margin="10,0,0,0" VerticalAlignment="Center" Height="32" />
+        </StackPanel>
 
         <Border Grid.Row="1" Background="{StaticResource SurfaceRaisedBrush}"
-                CornerRadius="10" Padding="18" Margin="0,0,0,16">
-            <StackPanel Orientation="Horizontal">
+                CornerRadius="10" Padding="18" Margin="0,0,0,12">
+            <WrapPanel Orientation="Horizontal">
                 <StackPanel Margin="0,0,12,0">
                     <TextBlock Text="نام کامل" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
-                    <TextBox Width="180" Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Width="170" Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Margin="0,0,12,0">
                     <TextBlock Text="کد ملی" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
-                    <TextBox Width="150" Text="{Binding NationalCode, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Width="140" MaxLength="10"
+                             Text="{Binding NationalCode, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Margin="0,0,12,0">
+                    <TextBlock Text="تلفن" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
+                    <TextBox Width="140" Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Margin="0,0,12,0" VerticalAlignment="Bottom">
+                    <TextBlock Text="جنسیت" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
+                    <CheckBox Content="زن" IsChecked="{Binding IsFemale}" Height="30" />
+                </StackPanel>
+                <StackPanel Margin="0,0,12,0">
+                    <TextBlock Text="سال شروع" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
+                    <TextBox Width="70" Text="{Binding StartYear}" />
+                </StackPanel>
+                <StackPanel Margin="0,0,12,0">
+                    <TextBlock Text="ماه" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
+                    <TextBox Width="55" Text="{Binding StartMonth}" />
+                </StackPanel>
+                <StackPanel Margin="0,0,12,0">
+                    <TextBlock Text="روز" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
+                    <TextBox Width="55" Text="{Binding StartDay}" />
                 </StackPanel>
                 <StackPanel Margin="0,0,12,0">
                     <TextBlock Text="مدت (ماه)" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
-                    <TextBox Width="90" Text="{Binding DurationMonths}" />
+                    <TextBox Width="75" Text="{Binding DurationMonths}" />
                 </StackPanel>
                 <StackPanel Margin="0,0,12,0">
                     <TextBlock Text="شهریه ماهانه (ریال)" Style="{StaticResource MutedText}" Margin="0,0,0,4" />
-                    <TextBox Width="150" Text="{Binding MonthlyFeeRial}" />
+                    <TextBox Width="140" Text="{Binding MonthlyFeeRial}" />
                 </StackPanel>
                 <Button Content="ثبت عضو" Command="{Binding RegisterCommand}"
-                        VerticalAlignment="Bottom" Height="34" Margin="0,0,0,0" />
-                <Button Content="به‌روزرسانی" Command="{Binding RefreshCommand}"
-                        VerticalAlignment="Bottom" Height="34" Margin="10,0,0,0" />
-            </StackPanel>
+                        VerticalAlignment="Bottom" Height="34" MinWidth="100" />
+            </WrapPanel>
         </Border>
 
         <TextBlock Grid.Row="2" Text="{Binding ErrorMessage}"
-                   Foreground="{StaticResource DangerBrush}" TextWrapping="Wrap" />
+                   Foreground="{StaticResource DangerBrush}" TextWrapping="Wrap" Margin="0,0,0,8" />
 
-        <DataGrid Grid.Row="2" ItemsSource="{Binding Members}" Margin="0,24,0,0">
+        <DataGrid Grid.Row="3" ItemsSource="{Binding Members}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="نام" Binding="{Binding FullName}" Width="*" />
-                <DataGridTextColumn Header="کد ملی" Binding="{Binding NationalCode}" Width="130" />
-                <DataGridTextColumn Header="تلفن" Binding="{Binding PhoneNumber}" Width="130" />
-                <DataGridTextColumn Header="شروع" Binding="{Binding StartDate}" Width="120" />
-                <DataGridTextColumn Header="پایان" Binding="{Binding EndDate}" Width="120" />
-                <DataGridTextColumn Header="بدهی (ریال)" Binding="{Binding OutstandingRial}" Width="140" />
-                <DataGridTextColumn Header="وضعیت" Binding="{Binding Status}" Width="110" />
+                <DataGridTextColumn Header="کد ملی" Binding="{Binding NationalCode}" Width="120" />
+                <DataGridTextColumn Header="تلفن" Binding="{Binding PhoneNumber}" Width="120" />
+                <DataGridTextColumn Header="شروع" Binding="{Binding StartDate}" Width="110" />
+                <DataGridTextColumn Header="پایان" Binding="{Binding EndDate}" Width="110" />
+                <DataGridTextColumn Header="بدهی (ریال)" Binding="{Binding OutstandingRial}" Width="130" />
+                <DataGridTextColumn Header="وضعیت" Binding="{Binding Status}" Width="100" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
