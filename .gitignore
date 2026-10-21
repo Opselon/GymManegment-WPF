@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# The inherited rule above ("Backup*/") targets Visual Studio's backup folders,
+# not application source. Our backup adapter is real code and must be committed.
+!src/GymPro.Infrastructure/Backup/

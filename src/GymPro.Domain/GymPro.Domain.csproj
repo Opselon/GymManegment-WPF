@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Innermost layer. Pure C#: no EF Core, no WPF, no ASP.NET, and no
+    third-party framework packages. It must stay referenceable from any host,
+    which is what makes the business rules portable and unit-testable.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>GymPro.Domain</RootNamespace>
+    <AssemblyName>GymPro.Domain</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The persistence store and test doubles assign identity, so they need
+         the internal identity setter on the aggregate roots. -->
+    <InternalsVisibleTo Include="GymPro.Persistence" />
+    <InternalsVisibleTo Include="GymPro.Application.Tests" />
+    <InternalsVisibleTo Include="GymPro.Domain.Tests" />
+    <InternalsVisibleTo Include="GymPro.Persistence.Tests" />
+  </ItemGroup>
+
+</Project>

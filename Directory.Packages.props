@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Stops NuGet from walking UP the folder tree to a machine-level
+  Directory.Packages.props (which pins unrelated, stale versions such as
+  EF Core 3.1 and would silently break this solution). Every version this
+  repository needs is pinned explicitly in each csproj instead.
+-->
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+</Project>

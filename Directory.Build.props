@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--
+    Solution-wide build policy.
+
+    The repository treats warnings as errors on purpose: the original codebase
+    shipped with hundreds of suppressed/nullable warnings, and the only way to
+    keep a rewrite clean is to make the compiler fail the moment one appears.
+  -->
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors></WarningsNotAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
+
+    <!-- Deterministic, reproducible builds. -->
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+
+    <!-- Single source of truth for the product version. -->
+    <Version>2.0.0</Version>
+    <Authors>Opselon</Authors>
+    <Product>GymPro</Product>
+    <Copyright>Copyright (c) 2026 Opselon</Copyright>
+  </PropertyGroup>
+
+  <!--
+    Layer-discipline guard: the Domain layer must not reference any framework
+    infrastructure. These targets fail the build rather than letting a stray
+    using statement rot the architecture over time.
+  -->
+  <PropertyGroup>
+    <IsDomainLayer Condition="'$(MSBuildProjectName)' == 'GymPro.Domain'">true</IsDomainLayer>
+    <IsApplicationLayer Condition="'$(MSBuildProjectName)' == 'GymPro.Application'">true</IsApplicationLayer>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Cross-cutting adapters that are neither business logic nor storage:
+    password hashing, clock, Excel/PDF reporting, QR generation, backup.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>GymPro.Infrastructure</RootNamespace>
+    <AssemblyName>GymPro.Infrastructure</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GymPro.Domain\GymPro.Domain.csproj" />
+    <ProjectReference Include="..\GymPro.Application\GymPro.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- PBKDF2-based password hashing; replaces the original 3DES/MD5 scheme. -->
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+    <!-- SqlConnection for the BACKUP DATABASE statement in the backup adapter.
+         7.1.1 rather than a 6.x line: 6.1.2 pulls in a Pkcs with two known
+         advisories, and the fix belongs upstream, not in a suppression. -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.1.1" />
+    <!-- Pinned to override the version SqlClient brings transitively. -->
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
+
+</Project>

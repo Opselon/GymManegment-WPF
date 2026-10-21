@@ -1,0 +1,35 @@
+<UserControl x:Class="GymPro.Presentation.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             FlowDirection="RightToLeft">
+    <StackPanel Margin="28">
+        <TextBlock Text="داشبورد" Style="{StaticResource HeadingText}" Margin="0,0,0,20" />
+
+        <UniformGrid Rows="1" Columns="3" Margin="0,0,0,20">
+            <Border Background="{StaticResource SurfaceRaisedBrush}" CornerRadius="10" Padding="20" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding ActiveMembers}" FontSize="34" FontWeight="Bold" />
+                    <TextBlock Text="اعضای فعال" Style="{StaticResource MutedText}" />
+                </StackPanel>
+            </Border>
+            <Border Background="{StaticResource SurfaceRaisedBrush}" CornerRadius="10" Padding="20" Margin="5,0,5,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding ExpiringThisMonth}" FontSize="34" FontWeight="Bold" />
+                    <TextBlock Text="انقضا در این ماه" Style="{StaticResource MutedText}" />
+                </StackPanel>
+            </Border>
+            <Border Background="{StaticResource SurfaceRaisedBrush}" CornerRadius="10" Padding="20" Margin="10,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="{Binding OutstandingTotalRial}" FontSize="34" FontWeight="Bold" />
+                    <TextBlock Text="مانده بدهی (ریال)" Style="{StaticResource MutedText}" />
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+        <TextBlock Text="{Binding ErrorMessage}" Foreground="{StaticResource DangerBrush}"
+                   TextWrapping="Wrap" Margin="0,0,0,12" />
+
+        <Button Content="به‌روزرسانی" Command="{Binding LoadCommand}" Width="160"
+                HorizontalAlignment="Left" />
+    </StackPanel>
+</UserControl>

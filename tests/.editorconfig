@@ -1,0 +1,8 @@
+root = false
+
+[*.cs]
+# Test method names are sentences, not API surface: Name_MapsTo_X is the
+# established xUnit convention and reads far better in failure output.
+dotnet_diagnostic.CA1707.severity = none
+# Test classes legitimately hold many small fields and helpers.
+dotnet_diagnostic.CA1822.severity = none

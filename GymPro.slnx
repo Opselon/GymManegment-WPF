@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GymPro.Application/GymPro.Application.csproj" />
+    <Project Path="src/GymPro.Domain/GymPro.Domain.csproj" />
+    <Project Path="src/GymPro.Infrastructure/GymPro.Infrastructure.csproj" />
+    <Project Path="src/GymPro.Persistence/GymPro.Persistence.csproj" />
+    <Project Path="src/GymPro.Presentation/GymPro.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GymPro.Application.Tests/GymPro.Application.Tests.csproj" />
+    <Project Path="tests/GymPro.Domain.Tests/GymPro.Domain.Tests.csproj" />
+    <Project Path="tests/GymPro.Persistence.Tests/GymPro.Persistence.Tests.csproj" />
+  </Folder>
+</Solution>
