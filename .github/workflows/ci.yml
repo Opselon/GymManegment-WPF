@@ -78,7 +78,7 @@ jobs:
       # NuGet audit already runs during restore; this step makes a vulnerable
       # transitive package a hard CI failure instead of a passing warning.
       - name: Restore with the vulnerability audit promoted to an error
-        run: dotnet restore GymPro.slnx -p:NuGetAuditMode=all -p:WarningsAsErrors=NU1901,NU1902,NU1903,NU1904
+        run: dotnet restore GymPro.slnx -p:NuGetAuditMode=all "-p:WarningsAsErrors=NU1901%3BNU1902%3BNU1903%3BNU1904"
 
   format:
     name: Verify formatting
