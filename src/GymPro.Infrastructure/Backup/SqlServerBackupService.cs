@@ -1,3 +1,4 @@
+using GymPro.Application.Abstractions;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 
@@ -26,10 +27,14 @@ public sealed class SqlServerBackupService(
     ILogger<SqlServerBackupService> logger) : IDatabaseBackupService
 {
     /// <inheritdoc />
+    public string BackupDirectory => backupDirectory;
+
+    /// <inheritdoc />
     public async Task<string> CreateBackupAsync(CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(backupDirectory);
-        Directory.CreateDirectory(backupDirectory);
+        var targetDir = Path.GetFullPath(backupDirectory);
+        Directory.CreateDirectory(targetDir);
 
         var builder = new SqlConnectionStringBuilder(connectionString);
         var database = builder.InitialCatalog;
@@ -43,7 +48,7 @@ public sealed class SqlServerBackupService(
         // Timestamped to the second: two backups in the same minute must not
         // overwrite each other, or a failed restore has no fallback.
         var fileName = $"{database}_{DateTime.UtcNow:yyyyMMdd_HHmmss}.bak";
-        var fullPath = Path.Combine(backupDirectory, fileName);
+        var fullPath = Path.Combine(targetDir, fileName);
 
         await using var connection = new SqlConnection(builder.ConnectionString);
         await connection.OpenAsync(cancellationToken);
@@ -58,7 +63,22 @@ public sealed class SqlServerBackupService(
         command.Parameters.AddWithValue("@target", fullPath);
 
         BackupLog.BackingUp(logger, database, fullPath);
-        await command.ExecuteNonQueryAsync(cancellationToken);
+
+        try
+        {
+            await command.ExecuteNonQueryAsync(cancellationToken);
+        }
+        catch (SqlException ex)
+        {
+            // SQL Server writes the file itself, so the usual cause is a path it
+            // cannot reach or a permission the service account lacks. Wrap it so
+            // callers depend on the abstraction, not on SqlClient.
+            throw new InvalidOperationException(
+                $"SQL Server could not write {fullPath}. The directory must be on a path the "
+                + "server's service account can write to, and for a remote server it must be a "
+                + $"UNC path. Server said: {ex.Message}",
+                ex);
+        }
 
         return fullPath;
     }
@@ -77,7 +97,7 @@ public sealed class SqlServerBackupService(
             return [];
         }
 
-        var stale = Directory.GetFiles(backupDirectory, "*.bak")
+        var stale = Directory.GetFiles(Path.GetFullPath(backupDirectory), "*.bak")
             .OrderByDescending(f => f, StringComparer.OrdinalIgnoreCase)
             .Skip(keepNewest)
             .ToList();
@@ -109,16 +129,6 @@ public sealed class SqlServerBackupService(
 
         return deleted;
     }
-}
-
-/// <summary>Creates and prunes database backups.</summary>
-public interface IDatabaseBackupService
-{
-    /// <summary>Writes one backup and returns the full path of the file.</summary>
-    Task<string> CreateBackupAsync(CancellationToken cancellationToken = default);
-
-    /// <summary>Deletes all but the newest backups, returning the paths removed.</summary>
-    IReadOnlyList<string> PruneBackups(int keepNewest);
 }
 
 /// <summary>

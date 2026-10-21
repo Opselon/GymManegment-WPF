@@ -68,7 +68,10 @@ public static class DependencyInjection
         services.AddSingleton<IDatabaseBackupService>(sp =>
             new SqlServerBackupService(
                 connectionString,
-                backupDirectory,
+                // Anchored to the app directory, not the process working
+                // directory: a shortcut, a scheduled task or a shell started
+                // elsewhere must still write backups to the same place.
+                Path.Combine(AppContext.BaseDirectory, backupDirectory),
                 sp.GetRequiredService<ILogger<SqlServerBackupService>>()));
     }
 }

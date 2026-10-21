@@ -66,6 +66,14 @@ tests/
   GymPro.Persistence.Tests/    8 tests — real SQLite round-trips
 ```
 
+### Interface
+
+The whole app is one design system in
+`src/GymPro.Presentation/Views/Styles/VaultStyles.xaml`: one accent colour, one
+font stack with Arabic-script coverage, and controls drawn from a shared
+resource dictionary. Every screen is right-to-left, dark, and laid out on the
+same card grid.
+
 ### Design decisions
 
 **The domain has no framework references.** `GymPro.Domain.csproj` references no
@@ -114,18 +122,18 @@ implemented and tested; "UI" means there is a screen for it.
 | Dashboard | Active members, expiring this month, total debt | Implemented | Implemented |
 | Staff accounts | Roles (Admin, Coach, Receptionist), PBKDF2 sign-in | Implemented | Sign-in only |
 | Attendance | Immutable check-in log, expired-member guard, QR payload rendering | Implemented | Implemented — check in, see today's log |
-| Body measurements | Per-member progress, nullable metrics | Implemented | Partial — handlers and storage; no screen |
+| Body measurements | Per-member progress, nullable metrics | Implemented | Implemented — entry form and history |
 | Reporting | Excel export of the member list | Implemented | Implemented — save dialog |
-| Backup | `BACKUP DATABASE … WITH COPY_ONLY`, retention pruning | Implemented | Not yet |
+| Backup | `BACKUP DATABASE … WITH COPY_ONLY`, retention pruning | Implemented | Implemented — create and prune |
 
 First run creates the database and seeds a single administrator account
 (`admin` / `admin`) so a fresh clone can be signed into; change that password
 before the app is used for real.
 
-What remains for the modules still marked partial or "Not yet": a measurement
-entry screen over `RecordMeasurementCommand`, and a backup screen over
-`SqlServerBackupService`. Both are screens over handlers that already exist and
-are tested; no new business rules are needed.
+Every module now has a screen. The backup screen writes to a `backups`
+directory beside the executable by default (`Backup:Directory` in
+`appsettings.json`), anchored to the app directory rather than the process
+working directory so a shortcut or scheduled task behaves the same.
 
 Check-in and check-out is recorded as check-in only: the sheet has no exit time
 column, and inventing one would change the domain model rather than add a

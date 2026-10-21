@@ -1,28 +1,40 @@
 <UserControl x:Class="GymPro.Presentation.Views.ReportsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             FlowDirection="RightToLeft">
-    <StackPanel Margin="28">
-        <TextBlock Text="گزارش‌ها" Style="{StaticResource HeadingText}" Margin="0,0,0,20" />
+             FlowDirection="RightToLeft"
+             Background="{StaticResource SurfaceBrush}">
+    <Grid Margin="24,20,24,24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <Border Background="{StaticResource SurfaceRaisedBrush}" CornerRadius="10" Padding="20"
-                MaxWidth="620" HorizontalAlignment="Right">
+        <Grid Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="گزارش‌ها" Style="{StaticResource HeadingText}"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <Button Content="به‌روزرسانی" Command="{Binding RefreshCommand}"
+                    Style="{StaticResource SecondaryButton}"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" />
+        </Grid>
+
+        <Border Grid.Row="1" Style="{StaticResource Card}" VerticalAlignment="Top">
             <StackPanel>
-                <TextBlock Text="خروجی اکسل اعضا" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,6" />
-                <TextBlock Text="نام، کد ملی، تلفن، وضعیت، تاریخ شروع و پایان، شهریه و مانده بدهی."
-                           Style="{StaticResource MutedText}" TextWrapping="Wrap" Margin="0,0,0,16" />
+                <TextBlock Text="خروجی اکسل اعضا" Style="{StaticResource CardTitle}"
+                           Margin="0,0,0,6" />
+                <TextBlock Text="فهرست کامل اعضا را به صورت یک فایل اکسل ذخیره کنید. این خروجی شامل مشخصات تماس، مدت عضویت و وضعیت هر عضو است."
+                           Style="{StaticResource MutedText}" TextWrapping="Wrap"
+                           Margin="0,0,0,16" />
 
-                <Button Content="ساخت و ذخیره فایل" Command="{Binding ExportMembersCommand}"
-                        IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBool}}"
-                        Width="180" HorizontalAlignment="Right" />
+                <Button Content="دانلود فایل اکسل" Command="{Binding ExportMembersCommand}"
+                        HorizontalAlignment="Right" />
+
+                <TextBlock Text="{Binding StatusMessage}" Style="{StaticResource BannerInfo}"
+                           TextWrapping="Wrap" Margin="0,14,0,0" />
+                <TextBlock Text="{Binding LastExportPath}" Style="{StaticResource MutedText}"
+                           TextWrapping="Wrap" Margin="0,6,0,0" />
+                <TextBlock Text="{Binding ErrorMessage}" Style="{StaticResource BannerError}"
+                           TextWrapping="Wrap" Margin="0,6,0,0" />
             </StackPanel>
         </Border>
-
-        <TextBlock Text="{Binding StatusMessage}" Foreground="{StaticResource AccentBrush}"
-                   TextWrapping="Wrap" Margin="0,16,0,0" />
-        <TextBlock Text="{Binding LastExportPath}" Style="{StaticResource MutedText}"
-                   TextWrapping="Wrap" Margin="0,4,0,0" />
-        <TextBlock Text="{Binding ErrorMessage}" Foreground="{StaticResource DangerBrush}"
-                   TextWrapping="Wrap" Margin="0,8,0,0" />
-    </StackPanel>
+    </Grid>
 </UserControl>
